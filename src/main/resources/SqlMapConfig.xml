@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig
+PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+   <settings  useStatementNamespaces="true"/>
+    <!--映射文件-->
+    <sqlMap resource="sqlmap/TMdDistance-sqlmap.xml"/>
+    <sqlMap resource="sqlmap/TMdInstance-sqlmap.xml"/>
+    <sqlMap resource="sqlmap/TMdInstanceSegment-sqlmap.xml"/>
+    <sqlMap resource="sqlmap/TMdInstanceSegmentVote-sqlmap.xml"/>
+    <sqlMap resource="sqlmap/TMdWordSimilarity-sqlmap.xml"/>
+    <sqlMap resource="sqlmap/TSegmentRealation-sqlmap.xml"/>
+
+</sqlMapConfig>

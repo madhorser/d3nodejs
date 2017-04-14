@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>design-24px-glyph-2_transform-origin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.4">
+        <g id="综合应用-copy" transform="translate(-684.000000, -100.000000)">
+            <g id="card" transform="translate(70.000000, 60.000000)">
+                <g id="Group-2">
+                    <g id="Group-3-Copy-2" transform="translate(604.000000, 30.000000)">
+                        <g id="design-24px-glyph-2_transform-origin" transform="translate(10.000000, 10.000000)">
+                            <circle id="Oval-23" fill="#59A8DB" cx="25" cy="25" r="25"></circle>
+                            <g id="shopping-24px-glyph-2_currency-exchange" transform="translate(13.000000, 15.000000)" fill="#FFFFFF">
+                                <g id="tech-24px-glyph-2_l-settings">
+                                    <g id="Group">
+                                        <path d="M24,17 L24,15 L21.859,15 C21.765,14.636 21.621,14.296 21.435,13.98 L22.95,12.465 L21.536,11.051 L20.021,12.566 C19.705,12.38 19.365,12.236 19.001,12.142 L19.001,10 L17.001,10 L17.001,12.141 C16.637,12.235 16.297,12.379 15.981,12.565 L14.466,11.05 L13.052,12.464 L14.567,13.979 C14.381,14.295 14.237,14.635 14.143,14.999 L12,14.999 L12,16.999 L14.141,16.999 C14.235,17.363 14.379,17.703 14.565,18.019 L13.05,19.534 L14.464,20.948 L15.979,19.433 C16.295,19.619 16.635,19.763 16.999,19.857 L16.999,22 L18.999,22 L18.999,19.859 C19.363,19.765 19.703,19.621 20.019,19.435 L21.534,20.95 L22.948,19.536 L21.433,18.021 C21.619,17.705 21.763,17.365 21.857,17.001 L24,17.001 L24,17 Z M18,17 C17.448,17 17,16.552 17,16 C17,15.448 17.448,15 18,15 C18.552,15 19,15.448 19,16 C19,16.552 18.552,17 18,17 L18,17 Z" id="Shape"></path>
+                                        <path d="M4,2 L20,2 L20,9 L22,9 L22,2 C22,0.897 21.103,0 20,0 L4,0 C2.897,0 2,0.897 2,2 L2,13 L4,13 L4,2 L4,2 Z" id="Shape"></path>
+                                        <path d="M0,16 C0,18.206 1.794,20 4,20 L10,20 L10,15 L0,15 L0,16 L0,16 Z" id="Shape"></path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

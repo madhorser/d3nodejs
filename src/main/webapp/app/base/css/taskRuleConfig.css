@@ -1,0 +1,50 @@
+
+html, body {
+    height: 100%;
+}
+html {
+    overflow: hidden;
+}
+body {
+    font-family:"微软雅黑";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+.main{
+    margin-left:1%;
+}
+.left{
+    float:left;
+    padding-right:3px;
+    width:43%;
+}
+.middle{
+    float:left;
+    width:11%;
+    text-align:center;
+}
+.middle>button:first-child{
+    margin-top:150px;
+}
+.right{
+    padding-left:3px;
+    float:left;
+    width:43%;
+}
+.well{
+    margin-top:5px;
+    padding:5px;
+}
+
+.modal-button{
+    text-align:center;
+    margin-left: -10px;
+}
+.modal-button button{
+    width:100px;
+}
+.blue{
+    padding: 3px 12px;
+    border-radius: 0;
+    font-size: 12px;
+}

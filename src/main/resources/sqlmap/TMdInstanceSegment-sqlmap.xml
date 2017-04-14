@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >  
+<sqlMap  namespace="TMdInstanceSegment">  
+    <typeAlias alias="parameterMap" type="com.primeton.dgs.ontology.pojos.ParameterMap" />
+    <typeAlias alias="TMdInstanceSegment" type="com.primeton.dgs.ontology.pojos.TMdInstanceSegment" /> 
+  
+   		    
+ 		    <sql id="findByPageCondition">  
+		        
+		                <isNotEmpty property="instanceId">  
+		                <![CDATA[   
+		                     AND NSTANCE_ID = #instanceId# 
+		                ]]>  
+		                </isNotEmpty> 
+		                 
+		                <isNotEmpty property="parentId">  
+		                <![CDATA[  
+		                    AND PARENT_ID = #parentId#      
+		                ]]>  
+		                </isNotEmpty>  
+		                
+		                <isNotEmpty property="instanceCode">  
+		                <![CDATA[  
+		                    AND INSTANCE_CODE = #instanceCode#     
+		                ]]>  
+		                </isNotEmpty>  
+		                
+		              <isNotEmpty property="instanceName">  
+		                <![CDATA[  
+		                    AND INSTANCE_NAME = #instanceName#     
+		                ]]>  
+		                </isNotEmpty>  
+		                
+		                <isNotEmpty property="classifierId">  
+		                <![CDATA[  
+		                    AND CLASSIFIER_ID = #classifierId#     
+		                ]]>  
+		                </isNotEmpty>  
+		                
+		                <isNotEmpty property="namespace">  
+		                <![CDATA[  
+		                    AND NAMESPACE = #namespace#     
+		                ]]>  
+		                </isNotEmpty>
+		                
+		                <isNotEmpty property="segmentWord">  
+		                <![CDATA[  
+		                    AND SEGMENT_WORD = #segmentWord#     
+		                ]]>  
+		                </isNotEmpty>   
+
+		                
+		                <isNotEmpty property="tablename">  
+		                <![CDATA[  
+		                    AND TABLE_NAME = #tablename#     
+		                ]]>  
+		                </isNotEmpty>  
+		                
+		               <isNotEmpty property="tablecode">  
+		                <![CDATA[  
+		                    AND TABLE_CODE = #tablecode#     
+		                ]]>  
+		                </isNotEmpty>    
+		         
+		    </sql>
+		    
+		 <select id="findByPage3" parameterClass="parameterMap"  resultClass="java.util.HashMap"> 
+		 
+            SELECT * FROM (SELECT row_.*, rownum rownum_ FROM  
+                    (select t.* from T_MD_INSTANCE_SEGMENT t    
+                    where 1=1   
+			         
+			            <include refid="findByPageCondition" />  
+			                
+		            )row_ WHERE rownum &lt;= $limit$ )row_ WHERE rownum_ &gt;=$start$   
+            
+            
+	    </select>  
+	     
+	     
+	    <select id="findByPage2" parameterClass="parameterMap"  resultClass="java.util.HashMap">  
+	    	
+            SELECT * FROM (SELECT ROWNUM AS rowno, t.*  FROM T_MD_INSTANCE_SEGMENT t
+            WHERE  ROWNUM &lt;= #limit#
+            
+			            <include refid="findByPageCondition" />  
+			
+            ) table_alias
+             WHERE table_alias.rowno &gt;= #start#
+             
+	    </select>  
+	     
+	     
+	    <select id="findByCount" parameterClass="parameterMap" resultClass="long">  
+	        <![CDATA[  
+	            SELECT COUNT(*) FROM T_MD_INSTANCE_SEGMENT t   where 1=1  
+	        ]]>  
+	         
+	            <include refid="findByPageCondition" />  
+	         
+	    </select> 
+	    
+  </sqlMap>

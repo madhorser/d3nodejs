@@ -1,0 +1,22 @@
+.myrow {
+    background: #fceee2;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: "微软雅黑";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+.modal .modal-header {
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(59, 87, 127);
+    color: white;
+}

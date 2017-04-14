@@ -1,0 +1,42 @@
+.content{
+    width:100%;
+    height:100%;
+    background-image: url(../images/skin/skin-lg.jpg);
+    background-position: center;
+    background-size: 100%;
+}
+.login-bg{
+    position:fixed;
+    top:-50%;
+    left:-50%;
+    width:200%;
+    height:200%;
+
+}
+.loginPage{
+    position:absolute;
+    z--index:999;
+    margin:auto;
+    margin-top:-200px;
+    margin-left:-150px;
+    width:300px;
+    left:50%;
+    top:50%;
+    text-align:center;
+}
+.loginPage .panel,.loginPage  .panel input,.loginPage  .panel button{
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+}
+.loginPage .panel h4{
+    font-family:'黑体';
+    color:#0068fe;
+}
+.loginPage img{
+    width: 150px;
+    margin-right: -145px;
+}
+.loginPage button{
+    margin-bottom:30px;
+}

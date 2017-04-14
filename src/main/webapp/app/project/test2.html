@@ -1,0 +1,216 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>gojs-demo</title>
+  <script src="go-debug.js"></script>
+</head>
+<body>
+     <div id="myDiagramDiv" style="width:1430px; height:630px; background-color:white; /*#E0EEEE*/ font-family: '微软雅黑';"></div>
+</body>
+</html>
+<script>
+    //创建全局变量$
+    var $ = go.GraphObject.make;
+    //创建图表diagram
+    var myDiagram =
+      $(go.Diagram, "myDiagramDiv",
+        {
+          initialContentAlignment: go.Spot.Center, // center Diagram contents
+          "undoManager.isEnabled": true, // enable Ctrl-Z to undo and Ctrl-Y to redo
+          "toolManager.mouseWheelBehavior": go.ToolManager.WheelNone
+        }
+      );
+    //交互行为
+    //选中group
+    function onSelectionChanged(node){
+      var icon=node.findObject("SHAPE");
+      if(icon!==null){
+        if(node.isSelected){
+          icon.fill="cyan";
+        }else{
+          icon.fill="lightgray";
+        }
+      }
+    }
+    //高亮事件
+     function onNodeMouseEnter(e, node) {
+      var diagram = node.diagram;
+      diagram.startTransaction("highlight");
+      // remove any previous highlighting
+      diagram.clearHighlighteds();
+      node.isHighlighted = true;
+      // for each Link coming out of the Node, set Link.isHighlighted
+      node.findLinksOutOf().each(function(l) { l.isHighlighted = true; });
+      // for each Node destination for the Node, set Node.isHighlighted
+      node.findNodesOutOf().each(function(n) { n.isHighlighted = true; });
+      diagram.commitTransaction("highlight");
+    };
+
+    function onNodeMouseLeave(e, obj) {
+      //myDiagram.startTransaction("no highlighteds");
+      myDiagram.clearHighlighteds();
+      //myDiagram.commitTransaction("no highlighteds");
+    };
+
+    function onLinkMouseEnter(e, link) {
+      var diagram = link.diagram;
+      diagram.startTransaction("highlight");
+      // remove any previous highlighting
+      diagram.clearHighlighteds();
+      link.isHighlighted = true;
+      link.fromNode.isHighlighted = true;
+      link.toNode.isHighlighted = true;
+      diagram.commitTransaction("highlight");
+    };
+
+    function onLinkMouseLeave(e, obj) {
+      //myDiagram.startTransaction("no highlighteds");
+      myDiagram.clearHighlighteds();
+      //myDiagram.commitTransaction("no highlighteds");
+    };
+    //数据模型
+    // node模板
+    myDiagram.nodeTemplate =
+      $(go.Node, "Auto",
+        {selectionAdorned:false,
+         mouseEnter:onNodeMouseEnter,
+         mouseLeave:onNodeMouseLeave,
+         locationSpot: go.Spot.Center, // Node.location is the center of the Shape
+         selectionAdorned: false
+       },
+        // the entire node will have a light-blue background
+        $(go.Shape,"Rectangle",{name:"SHAPE",fill:"lightgray",strokeWidth:2},
+           // the Shape.stroke color depends on whether Link.isHighlighted is true
+          new go.Binding("stroke","isHighlighted",function(h){ return h? "red":"#33D3E5"})
+          .ofObject()),
+        $(go.Panel, "Horizontal",  
+            { stretch: go.GraphObject.Horizontal, background: "#33D3E5" ,cursor:"pointer"},
+            $(go.Picture,
+              { alignment: go.Spot.Right, margin: 5,width: 20, height: 20 },
+              new go.Binding("source")),
+            $(go.TextBlock,
+              {
+                name:"TEXT",
+                alignment: go.Spot.Left,
+                margin: 5,
+                font: "bold 14px sans-serif",
+                opacity: 0.75,
+                stroke: "#404040"
+              },
+              new go.Binding("stroke", "isHighlighted", function(h) {
+                            return h ? "crimson" : "#404040";
+                        }).ofObject(),
+              new go.Binding("text", "name").makeTwoWay())
+          ), 
+        //node select adornment
+        {
+          selectionAdornmentTemplate:
+            $(go.Adornment, "Auto",
+              $(go.Shape,
+                { fill: null, stroke: "dodgerblue", strokeWidth: 6 },
+                new go.Binding("stroke", "color")),
+              $(go.Placeholder)
+            )  // end Adornment
+        }
+      );
+    //group模板
+    myDiagram.groupTemplate =
+      $(go.Group, "Auto",
+        {selectionAdorned:false,
+         selectionChanged:onSelectionChanged,
+         computesBoundsAfterDrag: false,
+         layout:
+            $(go.GridLayout,
+              { wrappingColumn: 1, alignment: go.GridLayout.Position,
+                  cellSize: new go.Size(1, 1), spacing: new go.Size(4, 4) })
+       },
+       new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+        $(go.Shape, "Rectangle",
+          { name:"SHAPE",fill: null, stroke: "rgb(211,224,237)", strokeWidth: 1 }),   //#00cccc
+        $(go.Panel, "Vertical",  // title above Placeholder
+          $(go.Panel, "Horizontal",  // picture next to TextBlock
+            { stretch: go.GraphObject.Horizontal, background: "rgb(213,234,255)" },
+            $(go.Picture,
+              { alignment: go.Spot.Right, margin: 5,width: 20, height: 20 },
+              new go.Binding("source")),
+            $(go.TextBlock,
+              {
+                alignment: go.Spot.Left,
+                margin: 5,
+                font: "bold 16px sans-serif",
+                opacity: 0.75,
+                stroke: "#404040"
+              },
+              new go.Binding("text", "name").makeTwoWay())
+          ),  // end Horizontal Panel
+          $(go.Placeholder,
+            { padding: 5, alignment: go.Spot.TopLeft })
+        ),  // end Vertical Panel
+        //group select adornment
+        {
+          selectionAdornmentTemplate:
+            $(go.Adornment, "Auto",
+              $(go.Shape,
+                { fill: null, stroke: "dodgerblue", strokeWidth: 6 },
+                new go.Binding("stroke", "color")),
+              $(go.Placeholder)
+            )  // end Adornment
+        }
+      );
+    // link模板
+    myDiagram.linkTemplate =
+      $(go.Link,
+        { routing: go.Link.Normal, toShortLength: 8, selectable: false ,cursor:"pointer",
+          mouseEnter:onLinkMouseEnter,
+          mouseLeave:onLinkMouseLeave
+        },//连线部分
+        $(go.Shape,
+          { isPanelMain: true, stroke: "black", strokeWidth: 1 },
+          // the Shape.stroke color depends on whether Link.isHighlighted is true
+          new go.Binding("stroke", "isHighlighted", function(h) { return h ? "red" : "black"; })
+              .ofObject(),
+          new go.Binding("strokeWidth","width")
+          ),//箭头部分
+        $(go.Shape,
+          { toArrow: "Standard", stroke: null },
+          new go.Binding("scale","scale"),
+          // the Shape.fill color depends on whether Link.isHighlighted is true
+          new go.Binding("fill", "isHighlighted", function(h) { return h ? "red" : "black"; })
+              .ofObject()),
+         $(go.TextBlock,
+          new go.Binding("stroke", "isHighlighted", function(h) {
+                        return h ? "crimson" : "#8B8682";
+                    }).ofObject(),
+          new go.Binding("text", "text"))
+      );
+    //数据模型
+    var model = $(go.GraphLinksModel);
+    model.nodeDataArray=[
+       {key:"ywscl",name:"业务生产类",source:"./images/site/business.png",isGroup:true,color:"red",loc:"0 50"},
+       {key:"hxxt",name:"核心系统",source:"./images/site/system.png",group:"ywscl",color:"red"},
+       {key:"xdxt",name:"信贷系统",source:"./images/site/system.png",group:"ywscl",color:"red"},
+       {key:"khgxglxt",name:"客户关系管理系统",source:"./images/site/system.png",group:"ywscl",color:"red"},
+       {key:"sjck",name:"数据仓库",source:"./images/site/warehouse.png",isGroup:true,color:"blue",loc:"300 50"},
+       {key:"sjhcc",name:"数据缓冲层",source:"./images/site/system.png",group:"sjck",color:"blue"},
+       {key:"jcsjc",name:"基础数据层",source:"./images/site/system.png",group:"sjck",color:"blue"},
+       {key:"jghzc",name:"加工汇总层",source:"./images/site/system.png",group:"sjck",color:"blue"},
+       {key:"glfxl",name:"管理分析类",source:"./images/site/application.png",isGroup:true,color:"green",loc:"550 50"},
+       {key:"gljsc",name:"管理驾驶舱",source:"./images/site/system.png",group:"glfxl",color:"green"},
+       {key:"tybb",name:"统一报表",source:"./images/site/system.png",group:"glfxl",color:"green"},
+       {key:"fxgk",name:"风险管控",source:"./images/site/system.png",group:"glfxl",color:"green"}
+    ];
+    model.linkDataArray=[
+      {from:"hxxt",to:"sjhcc",text:"核心-缓冲层"},
+      {from:"xdxt",to:"sjhcc",text:"信贷-缓冲层"},
+      {from:"khgxglxt",to:"sjhcc",text:"客户关系-缓冲层"},
+      {from:"sjhcc",to:"jcsjc",text:"缓冲-基础"},
+      {from:"jcsjc",to:"jghzc",text:"基础-加工"},
+      {from:"jghzc",to:"gljsc",text:"基础-加工"},
+      {from:"jghzc",to:"tybb",text:"基础-加工"},
+      {from:"jghzc",to:"fxgk",text:"基础-加工"},
+      {from:"ywscl",to:"sjck",text:"业务-数仓",width:4,scale:1.5},
+      {from:"sjck",to:"glfxl",text:"数仓-应用",width:4,scale:1.5}
+    ];
+    myDiagram.model = model;
+</script>

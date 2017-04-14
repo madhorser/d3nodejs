@@ -1,0 +1,167 @@
+
+html, body {
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: "微软雅黑";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+
+.tophead {
+    margin-left: 1px;
+    height: 40px;
+    background-color: #e7eaef;
+    padding-left: 20px;
+    /*margin-left:-9px;
+    margin-right:-10px;*/
+}
+
+.tophead img {
+    margin-top: -5px;
+}
+
+.tophead p {
+    height: 20px;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.main {
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.main .In-group {
+    float: right;
+    margin-left: 10px;
+    margin-top: -40px;
+    padding: 3px 12px;
+    font-size: 12px;
+    /*border-color:rgb(103,133,255);
+    background-color:rgb(103,133,255);*/
+}
+
+.main p button > img {
+    width: 20px;
+}
+
+.p-head {
+    margin: 0 0 12px;
+    font-weight: bold;
+    color: #546172;
+    font-size: 12px;
+}
+
+.p-head > span {
+    float: left;
+    height: 20px;
+    border: 2px solid #467bff;
+    margin-left: -15px;
+}
+
+.panel {
+    margin-top: 20px;
+    font-size: 13px;
+    background-color: #e7eaef;
+}
+
+.main .panel .panel-body .form-inline button {
+    margin-left: 5px;
+    width: 200px;
+    border-radius: 0;
+    border-color: #5398fd;
+    background-color: #5398fd;
+}
+
+.main .panel .panel-body .form-inline .form-group {
+    margin-right: 5px;
+}
+
+.modal .modal-body .form-inline .form-group {
+    margin-top: 10px;
+}
+
+.modal .modal-body > form {
+    text-align: center;
+}
+
+input[type=file], p.help-block {
+    display: inline-block;
+    color: red;
+    font-size: 12px;
+}
+
+.modal .modal-body form button {
+    width: 200px;
+    border-radius: 0;
+}
+
+.main .panel .panel-body .form-inline .form-group > label {
+    font-weight: initial;
+    width: 65px;
+    text-align: right;
+}
+
+.modal .modal-body .form-inline .form-group > label {
+    font-weight: initial;
+    width: 70px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.main .panel .panel-body .form-inline .form-group > input, .main .panel .panel-body .form-inline .form-group > select, .modal .modal-body .form-inline .form-group > input {
+    height: 30px;
+}
+
+.main .panel .panel-body .well {
+    background-color: white;
+}
+
+.main .panel .panel-body .well table > tbody > tr > td > a > img {
+    width: 20px;
+}
+
+.main .panel .panel-body .well table > tbody > tr > td > a > .img2 {
+    display: none;
+}
+
+.main .panel .panel-body .well table > tbody > tr > td > a:hover .img1 {
+    display: none;
+}
+
+.main .panel .panel-body .well table > tbody > tr > td > a:hover .img2 {
+    display: inline;
+}
+
+.main nav {
+    text-align: center;
+}
+
+.modal .modal-header {
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(59, 87, 127);
+    color: white;
+}
+
+.modal .modal-body > .panel > .panel-body > span {
+    font-size: 16px;
+    color: #4a525c;
+}
+
+.modal .modal-body > .p-head > a > img {
+    float: right;
+    margin-top: -5px;
+}
+
+.blue {
+    padding: 3px 12px;
+    border-radius: 0;
+    font-size: 12px;
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 命名空间，使用注解注入bean 需要 xmlns:context 和它底下的schema文件 -->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context" xmlns:jee="http://www.springframework.org/schema/jee"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+     
+    <!-- Activates scanning of @Autowired -->
+	<context:annotation-config />
+	
+    <context:property-placeholder location="classpath*:jdbc.properties" />
+
+      
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"   
+        p:driverClassName="${jdbc.driverClassName}" p:url="${jdbc.url}" p:username="${jdbc.username}"   
+        p:password="${jdbc.password}"  p:initialSize="1" p:maxActive="500" p:maxIdle="2" p:minIdle="1" />  
+
+
+
+    <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">     
+        <property name="dataSource" ref="dataSource"></property>  
+    </bean>
+    
+    
+    <!--spring整合ibatis -->
+    <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+        <property name="configLocation" value="classpath:SqlMapConfig.xml" />
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+    <bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+
+	<context:component-scan base-package="com.primeton.dgs.ontology.dao.impl" />
+	<context:component-scan base-package="com.primeton.dgs.ontology.service.impl" />
+
+	
+
+	
+
+</beans> 

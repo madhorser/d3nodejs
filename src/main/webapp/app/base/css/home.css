@@ -1,0 +1,25 @@
+
+.tab-content{
+    margin-left:20px;
+    margin-right:10px;
+}
+ul{
+    margin-left:1px;
+    background-color:#e7eaef;
+}
+
+html, body {
+    height: 100%;
+}
+html {
+    overflow: hidden;
+}
+body {
+    font-family:"Î¢ÈíÑÅºÚ";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+.tab-content>#tab1>.embed-responsive.embed-responsive-16by9 {
+    padding-bottom:0;
+    height: 100%;
+}

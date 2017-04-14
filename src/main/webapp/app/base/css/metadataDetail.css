@@ -1,0 +1,27 @@
+
+.left {
+    float: left;
+    width: 50%;
+    padding-right: 3px;
+}
+
+.right {
+    float: right;
+    width: 50%;
+    padding-left: 3px;
+}
+.right>.panel>.panel-body{
+    height:613px;
+}
+
+
+.blue {
+    padding: 3px 12px;
+    border-radius: 0;
+    font-size: 12px;
+}
+
+.embed-responsive.embed-responsive-16by9 {
+    /* padding-bottom: 56.25%; */
+    height: 100%;
+}

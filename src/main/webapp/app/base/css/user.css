@@ -1,0 +1,59 @@
+
+body {
+    overflow-x: hidden;
+}
+
+.left {
+    margin-top: 20px;
+    width: 130px;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    border-right: 0.01px solid rgb(244, 244, 244);
+}
+
+.right {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
+form > .form-group > label {
+    display: inline-block;
+    width: 110px;
+    font-weight: lighter;
+}
+
+form > .form-group > input {
+    display: inline-block;
+    width: 250px;
+}
+.tab-pane > .form-group > input {
+    display: inline-block;
+    width: 250px;
+}
+
+.nav > li > a {
+    color: black;
+    border-radius: 0;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #428bca;
+    background-color: white;
+    border-left: 3px solid #428bca;
+}
+
+form > .form-group > button {
+    width: 250px;
+    margin-left: 114px;
+}
+
+.tab-content > .tab-pane > .form-horizontal:nth-child(1) > .form-group {
+    text-align: center;
+}
+
+.tab-content > .tab-pane > .form-horizontal:nth-child(1) > .form-group > img {
+    margin-top: -35px;
+    margin-left: 100px;
+    margin-bottom: -15px;
+}

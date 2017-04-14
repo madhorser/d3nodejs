@@ -1,0 +1,16 @@
+.tophead {
+    margin-left: 1px;
+    height: 40px;
+    background-color: #e7eaef;
+    padding-left: 20px;
+}
+
+.tophead p span {
+    margin-right: 10px;
+}
+
+.tophead p {
+    height: 20px;
+    padding-top: 10px;
+    font-size: 12px;
+}

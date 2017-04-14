@@ -1,0 +1,105 @@
+.main .panel .panel-body .well table th {
+    border: none;
+}
+
+.main .panel .panel-body .well table thead {
+    border-bottom: 2px solid #ddd;
+}
+
+.main .panel .panel-body .well table td {
+    border-top: none;
+    border-bottom: 0.5px dashed #ddd;
+}
+
+.main .panel .panel-body .well table, .main .panel .panel-body .well table th {
+    text-align: center;
+}
+
+.main .panel .panel-body .well table thead > tr > th {
+    color: #4a525c;
+    font-weight: initial;
+}
+
+.main .panel .panel-body .well table tbody {
+    color: #858585;
+}
+.main .panel .panel-body .well table th{
+    border:none;
+}
+.main .panel .panel-body .well table thead{
+    border-bottom:1px solid #ddd;
+}
+.main .panel .panel-body .well table td{
+    border-top:none;
+    border-bottom:0.5px dashed #ddd;
+}
+.main .panel .panel-body .well table, .main .panel .panel-body .well table th, .modal .modal-body .panel>.panel-body>.table th, .modal .modal-body .panel>.panel-body>.table{
+    text-align:center;
+}
+.main .panel .panel-body .well table thead>tr>th, .modal .modal-body .panel>.panel-body>.table>thead>tr>th{
+    color:#4a525c;
+    font-weight:initial;
+}
+.main .panel .panel-body .well table tbody, .modal .modal-body .panel>.panel-body>.table>tbody{
+    color:#858585;
+}
+.panel .panel-body .well table th{
+    border:none;
+}
+.panel .panel-body .well table thead{
+    border-bottom:2px solid #ddd;
+}
+.panel .panel-body .well table td{
+    border-top:none;
+    border-bottom:0.5px dashed #ddd;
+}
+.panel .panel-body .well table, .panel .panel-body .well table th{
+    text-align:center;
+}
+.panel .panel-body .well table thead>tr>th{
+    color:#4a525c;
+    font-weight:initial;
+}
+.panel .panel-body .well table tbody{
+    color:#858585;
+}
+.panel .panel-body .well table th{
+    border:none;
+}
+.panel .panel-body .well table thead{
+    border-bottom:2px solid #ddd;
+}
+.panel .panel-body .well table td{
+    border-top:none;
+    border-bottom:0.5px dashed #ddd;
+}
+.panel .panel-body .well table, .panel .panel-body .well table th{
+    text-align:center;
+}
+.panel .panel-body .well table thead>tr>th{
+    color:#4a525c;
+    font-weight:initial;
+}
+.panel .panel-body .well table tbody{
+    color:#858585;
+}
+.panel .panel-body .well table th{
+    border:none;
+}
+.panel .panel-body .well table thead{
+    border-bottom:2px solid #ddd;
+}
+.panel .panel-body .well table td{
+    border-top:none;
+    border-bottom:0.5px dashed #ddd;
+}
+.panel .panel-body .well table, .panel .panel-body .well table th{
+    text-align:center;
+}
+.panel .panel-body .well table thead>tr>th{
+    color:#4a525c;
+    font-weight:initial;
+}
+.panel .panel-body .well table tbody{
+    color:#858585;
+}

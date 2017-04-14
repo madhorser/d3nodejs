@@ -1,0 +1,199 @@
+
+html,body {
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: "Î¢ÈíÑÅºÚ";
+    overflow: auto;
+    width: calc(100vw + 20px);
+    background-image: url(../images/bg.png);
+    background-position: center;
+    background-size: 100%;
+}
+
+.head .navbar {
+    border: 0;
+    border-top: 3px solid #5fdbff;
+}
+
+.head .navbar-brand>img {
+    display: inline-block;
+    width: 315px;
+    height: 49px;
+    margin-top: -15px;
+    margin-left: -15px;
+}
+
+.head .navbar {
+    padding: 12px 4px;
+    font-size: 15px;
+    background-color: #2e5574;
+}
+
+.head .navbar-header a,.head ul.nav li a {
+    color: #c9e0ff;
+    font-family: 'Ó×Ô²';
+}
+
+.head .navbar-brand:hover,.head .navbar-default .navbar-brand:focus {
+    color: #c9e0ff;
+}
+
+.head .nav>li>a:hover,.head .nav>li>a:focus {
+    color: #fff;
+}
+
+.main .menu {
+    background-color: #e7eaef;
+    bottom: 0;
+    /*color: #eeeeee !important;*/
+    /*left: 0;*/
+    overflow-y: auto;
+    position: fixed !important;
+    top: 78px;
+    width: 110px;
+    z-index: 1000;
+}
+
+.main .min-menu {
+    min-height: 500px;
+}
+
+.main .menu ul.nav li a {
+    text-align: center;
+    height: 100px;
+    border-radius: 0;
+}
+
+.main .menu ul.nav li:nth-child(1) {
+    background-image: url(../images/icons/menu1-1.jpg);
+}
+
+.main .menu ul.nav li:nth-child(2) {
+    background-image: url(../images/icons/menu2-1.jpg);
+}
+
+.main .menu ul.nav li:nth-child(3) {
+    background-image: url(../images/icons/menu3-1.jpg);
+}
+
+.main .menu ul.nav li:nth-child(4) {
+    background-image: url(../images/icons/menu4-1.jpg);
+}
+
+.main .menu ul.nav li:nth-child(5) {
+    background-image: url(../images/icons/menu5-1.jpg);
+}
+
+.main .menu .nav-pills>li:nth-child(1).active>a,.main .menu .nav-pills>li:nth-child(1).active>a:hover,.main .menu .nav-pills>li:nth-child(1).active>a:focus
+{
+    background-image: url(../images/icons/menu1-3.jpg);
+}
+
+.main .menu .nav-pills>li:nth-child(2).active>a,.main .menu .nav-pills>li:nth-child(2).active>a:hover,.main .menu .nav-pills>li:nth-child(2).active>a:focus
+{
+    background-image: url(../images/icons/menu2-3.jpg);
+}
+
+.main .menu .nav-pills>li:nth-child(3).active>a,.main .menu .nav-pills>li:nth-child(3).active>a:hover,.main .menu .nav-pills>li:nth-child(3).active>a:focus
+{
+    background-image: url(../images/icons/menu3-3.jpg);
+}
+
+.main .menu .nav-pills>li:nth-child(4).active>a,.main .menu .nav-pills>li:nth-child(4).active>a:hover,.main .menu .nav-pills>li:nth-child(4).active>a:focus
+{
+    background-image: url(../images/icons/menu4-3.jpg);
+}
+
+.main .menu .nav-pills>li:nth-child(5).active>a,.main .menu .nav-pills>li:nth-child(5).active>a:hover,.main .menu .nav-pills>li:nth-child(5).active>a:focus
+{
+    background-image: url(../images/icons/menu5-3.jpg);
+}
+
+.main .menu .nav>li:nth-child(1)>a:hover,.main .menu .nav>li:nth-child(1)>a:focus
+{
+    background-image: url(../images/icons/menu1-2.jpg);
+}
+
+.main .menu .nav>li:nth-child(2)>a:hover,.main .menu .nav>li:nth-child(2)>a:focus
+{
+    background-image: url(../images/icons/menu2-2.jpg);
+}
+
+.main .menu .nav>li:nth-child(3)>a:hover,.main .menu .nav>li:nth-child(3)>a:focus
+{
+    background-image: url(../images/icons/menu3-2.jpg);
+}
+
+.main .menu .nav>li:nth-child(4)>a:hover,.main .menu .nav>li:nth-child(4)>a:focus
+{
+    background-image: url(../images/icons/menu4-2.jpg);
+}
+
+.main .menu .nav>li:nth-child(5)>a:hover,.main .menu .nav>li:nth-child(5)>a:focus
+{
+    background-image: url(../images/icons/menu5-2.jpg);
+}
+
+.main .content {
+    margin-top: 76px;
+    margin-left: 110px;
+}
+
+/*#index, .main, .tab-content{
+	height:100%;
+	}*/
+#part2 {
+
+}
+
+#part2 .panel {
+    margin-top: 78px;
+    margin-left: 10px;
+    margin-right: 30px;
+    height: 200px;
+    border-radius: 0;
+    padding-top: 60px;
+}
+
+#part2 .panel .panel-body .input-group-lg>.form-control {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#part2 .panel .panel-body .input-group-lg>.input-group-btn>.btn {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    width: 100px;
+    color: white;
+    background-color: #3798e9;
+    border-top-color: #3798e9;
+    border-right-color: #3798e9;
+    border-bottom-color: #3798e9;
+}
+
+.modal .modal-header {
+    padding: 10px;
+    font-size: 16px;
+    background-color: rgb(59, 87, 127);
+    color: white;
+}
+/* #home>.embed-responsive.embed-responsive-16by9,#browse>.embed-responsive.embed-responsive-16by9,#analyse>.embed-responsive.embed-responsive-16by9,
+#appliCenter>.embed-responsive.embed-responsive-16by9,#search>.embed-responsive.embed-responsive-16by9{
+    padding-bottom:0;
+    height: 100%;
+} */
+.embed-responsive.embed-responsive-16by9{
+	padding-bottom:0;
+}
+#msg_info .embed-responsive.embed-responsive-16by9{
+	height:400px;
+}
+#user_info .embed-responsive.embed-responsive-16by9{
+	height:350px;
+}

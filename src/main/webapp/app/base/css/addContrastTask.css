@@ -1,0 +1,41 @@
+
+html, body {
+    height: 100%;
+}
+html {
+    overflow: hidden;
+}
+body {
+    font-family:"微软雅黑";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+.left{
+    float:left;
+    width:48%;
+    padding-right:3px;
+}
+.right{
+    float:left;
+    width:48%;
+    padding-left:3px;
+}
+.panel .panel-body{
+    height:360px;
+}
+
+
+.modal-button{
+    text-align:center;
+}
+.modal-button button{
+    width:100px;
+}
+.main{
+    overflow:auto;
+}
+.blue{
+    padding: 3px 12px;
+    border-radius: 0;
+    font-size: 12px;
+}

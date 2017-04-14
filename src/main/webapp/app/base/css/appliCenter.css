@@ -1,0 +1,61 @@
+
+html, body {
+    height: 100%;
+}
+html {
+    overflow: hidden;
+}
+body {
+    font-family:"微软雅黑";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+.sbar{
+    float:left;
+    height:20px;
+    border:2px solid #467bff;
+    /*margin-left:-16px;*/
+}
+.part1, .part2{
+    margin-top:20px;
+    margin-left:20px;
+    margin-right:10px;
+}
+.part1 p, .part2 p{
+    margin-left:30px;
+    font-weight:bold;
+}
+.part1 .panel, .part2 .panel{
+    margin:10px 15px;
+    height:92px;
+    background-color:#eff3f6;
+    border-color:#e6e9ee;
+}
+.part1 .panel:nth-child(3) .well:hover{
+    border-color:#00d6c9;
+    box-shadow: 0 0 5px rgba(0, 214, 201, 1)
+    /*box-shadow: 10px 10px 5px #00d6c9;*/
+}
+.part1 .panel:nth-child(4) .well:hover{
+    border-color:#2497fd;
+    box-shadow: 0 0 5px rgba(36, 151, 253, 1);
+    /*box-shadow: 10px 10px 5px #2497fd;*/
+}
+.part1 .panel:nth-child(5) .well:hover{
+    border-color:#ffa921;
+    box-shadow: 0 0 5px rgba(255, 169, 33, 1)
+    /*box-shadow: 10px 10px 5px #ffa921;*/
+}
+.well-top, .well-bottom{
+
+    display:inline-block;
+    width:170px;
+    background-color:white;
+    margin-left:20px;
+    padding:14px;
+    height:65px;
+}
+.part2>div{
+    color: rgb(190,210,230);
+
+}

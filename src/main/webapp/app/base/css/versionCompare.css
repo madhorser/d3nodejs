@@ -1,0 +1,78 @@
+.modal .modal-header{
+    padding:10px;
+    font-size:16px;
+    background-color:rgb(59,87,127);
+    color:white;
+}
+html, body {
+    height: 100%;
+}
+
+html {
+    overflow: hidden;
+}
+
+body {
+    font-family: "微软雅黑";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+#appli-version .panel {
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+#appli-version .part {
+    margin: 5px;
+}
+
+#appli-version label {
+    width: 110px;
+    margin-left: 10px;
+}
+
+#appli-version .panel .panel-heading .glyphicon {
+    width: 30px;
+    font-size: 15px;
+}
+
+.tophead {
+    margin-left: 1px;
+    height: 40px;
+    background-color: #e7eaef;
+    padding-left: 20px;
+    /*margin-left:-9px;
+    margin-right:-10px;*/
+}
+
+.tophead img {
+    margin-top: -5px;
+}
+
+.tophead p {
+    height: 20px;
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+.tophead p span {
+    margin-right: 10px;
+}
+.panel {
+    margin-top: 20px;
+    margin-left:20px;
+    font-size: 13px;
+    background-color: #e7eaef;
+}
+.panel>.panel-body{
+    padding-top:8px;
+    padding-bottom:8px;
+}
+.panel .panel-body .well {
+    background-color: white;
+}
+.blue{
+    padding: 3px 12px;
+    border-radius: 0;
+    font-size: 12px;
+}

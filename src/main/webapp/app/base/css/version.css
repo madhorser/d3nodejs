@@ -1,0 +1,172 @@
+
+html, body {
+    height: 100%;
+}
+html {
+    overflow: hidden;
+}
+body {
+    font-family:"寰蒋闆呴粦";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+.tophead{
+    margin-left:1px;
+    height:40px;
+    background-color:#e7eaef;
+    padding-left:20px;
+}
+.tophead img{
+    margin-top: -5px;
+}
+.tophead p{
+    height:20px;
+    padding-top:10px;
+    font-size:12px;
+}
+.tophead p span{
+    margin-right:10px;
+}
+.panel{
+    margin-left:20px;
+}
+.p-head{
+    margin:0 0 12px;
+    font-weight:bold;
+    color:#546172;
+    font-size:12px;
+}
+.p-head >span{
+    float:left;
+    height:20px;
+    border:2px solid #467bff;
+    margin-left: -16px;
+}
+.p-head button{
+    float:right;
+    margin-left:10px;
+    margin-top:-5px;
+    margin-right:2px;
+    padding:3px 12px;
+    border-radius:0;
+    font-size:12px;
+    border-color:rgb(103,133,255);
+    background-color:rgb(103,133,255);
+}
+.p-head button>img{
+    width:20px;
+}
+.panel{
+    margin-top:20px;
+    font-size:13px;
+    background-color:#e7eaef;
+}
+.panel .panel-body .well{
+    background-color:white;
+}
+.dRight2{ position:relative;right:0; -webkit-transition:right 0.6s; -moz-transition:right 0.6s; transition:right 0.6s;}
+.dRight2{
+    z-index:206;
+    width:84%;
+    background-color:white;
+    height:inherit;
+    overflow:auto;
+    position:fixed;
+    right:-84%;
+    top:0;
+}
+.dRight .panel{
+    margin-left:20px;
+    margin-right:10px;
+}
+.menu-right{
+    right:0px !important;
+}
+.hidebg2{
+    position:absolute;left:0px;top:0px;bottom:0px;
+    background-color:#000;
+    width:100%;  /*瀹藉害璁剧疆涓�00%锛岃繖鏍锋墠鑳戒娇闅愯棌鑳屾櫙灞傝鐩栧師椤甸潰*/
+    height:100%;
+    filter:alpha(opacity=40);  /*璁剧疆閫忔槑搴︿负60%*/
+    opacity:0.4;  /*闈濱E娴忚鍣ㄤ笅璁剧疆閫忔槑搴︿负60%*/
+    display:none;
+    z-Index:205;
+}
+.modal .modal-header{
+    padding:10px;
+    font-size:16px;
+    background-color:rgb(59,87,127);
+    color:white;
+}
+.blue{
+    padding: 3px 12px;
+    border-radius: 0;
+    font-size: 12px;
+}
+.embed-responsive.embed-responsive-16by9 {
+    padding-bottom: none;
+    height: 100%;
+}
+
+.modal .modal-body .form-inline .form-group {
+    margin-top: 10px;
+}
+
+.modal .modal-body > form {
+    text-align: center;
+}
+
+input[type=file], p.help-block {
+    display: inline-block;
+    color: red;
+}
+
+.modal .modal-body form button {
+    width: 200px;
+}
+
+
+.dRight {
+    position: relative;
+    right: 0;
+    -webkit-transition: right 0.6s;
+    -moz-transition: right 0.6s;
+    transition: right 0.6s;
+}
+
+.dRight {
+    z-index: 200;
+    width: 79%;
+    background-color: white;
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    right: -79%;
+    top: 0;
+}
+
+.menu-right {
+    right: 0px !important;
+}
+
+.hidebg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    background-color: #000;
+    width: 100%; /*闁诲海顢婂Λ鍕拷瀹曞洦濯奸柛鎾楀懏鐎繛鎴炴惈閹凤拷0%闂佹寧绋戦惌浣烘崲閺嶎厼鍐�梺鍨儏椤ゅ懘鏌ら搹顐㈢亰濠电偛娲楣冨箛椤栨侗妫忛梺鐓庡暱閺堫剙鈻嶅▎鎴滄勃闁稿本绻嶅ú顒勬煟閳哄倻澧悽顖ｅ亝閵囧嫰鎮介崨濠冦�*/
+    filter: alpha(opacity=60); /*闁荤姳绀佹晶浠嬫偪閸℃稒鐒婚煫鍥ㄦ⒐椤牠骞栨潏鍓х窗閻犳劧鎷�%*/
+    opacity: 0.6; /*闂傚倸鐗婇崟妤ㄥ┑鐐存綑缁绘锝炲澶婇棷闁靛鍊楅悷鎾绘偣娴ｇ鈷旈柣銈呮閺屽懓绠涢弮锟芥綘闁硅壈鎻紓姘辨嫻閿燂拷%*/
+    display: none;
+    z-Index: 101;
+}
+.embed-responsive.embed-responsive-16by9 {
+    padding-bottom:0;
+    height: 100%;
+}
+
+.panel {
+    margin-top: 20px;
+    font-size: 13px;
+    background-color: #e7eaef;
+}

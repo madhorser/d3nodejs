@@ -1,0 +1,52 @@
+
+html, body {
+    height: 100%;
+}
+html {
+    overflow: hidden;
+}
+body {
+    font-family:"微软雅黑";
+    overflow: auto;
+    width: calc(100vw + 20px);
+}
+.blue{
+    padding: 3px 12px;
+    border-radius: 0;
+    font-size: 12px;
+}
+.left{
+    float:left;
+    padding-right:3px;
+    width:35%;
+}
+.right{
+    display:inline-block;
+    padding-left:3px;
+    width:65%;
+    height:550px;
+}
+.left .panel{
+    height:550px;
+}
+.panel .panel-body .well{
+    margin:-16px -16px 20px -16px;
+    padding:23px;
+    border-radius:0;
+    height:150px;
+}
+.panel .panel-body form .form-group input, .panel .panel-body form .form-group select{
+    height:300px;
+}
+.panel .panel-body label{
+    font-weight:initial;
+    text-align: right;
+    margin-top:-4px;
+}
+.panel .panel-body form .form-group button{
+    width:150px;
+    border-radius:0;
+}
+.panel .panel-body form .nui-textbox, .panel .panel-body form .nui-textarea{
+    /*width:300px;*/
+}

@@ -1,0 +1,98 @@
+
+#news .right {
+    margin-left: 220px;
+}
+
+#news .left {
+    position: fixed;
+    width: 195px;
+    bottom: 0;
+    background-color: rgb(224, 240, 253);
+    top: 0;
+}
+.msg-p{
+    margin-top: 7px;
+    margin-left: 40px;
+}
+
+ul {
+    background-color: rgb(224, 240, 253);
+}
+
+.nav > li > a {
+    width: 195px;
+    height: 60px;
+    border-radius: 0;
+}
+
+
+.alert > p {
+    text-align: center;
+    margin-top:10px;
+    margin-bottom:5px;
+}
+
+.alert> p > span {
+    background-color: rgb(247, 247, 247);
+    padding: 4px;
+}
+
+.left ul.nav li:nth-child(1) {
+    background-image: url(../images/icons/massage1-2.jpg);
+}
+
+.left ul.nav li:nth-child(2) {
+    background-image: url(../images/icons/massage2-2.jpg);
+}
+
+.left ul.nav li:nth-child(3) {
+    background-image: url(../images/icons/massage3-2.jpg);
+}
+
+.left ul.nav li:nth-child(4) {
+    background-image: url(../images/icons/massage4-2.jpg);
+}
+
+.left ul.nav li:nth-child(5) {
+    background-image: url(../images/icons/massage5-2.jpg);
+}
+
+.left .nav-pills > li:nth-child(1).active > a, .left .nav-pills > li:nth-child(1).active > a:hover, .left .nav-pills > li:nth-child(1).active > a:focus {
+    background-image: url(../images/icons/massage1-1.jpg);
+}
+
+.left .nav-pills > li:nth-child(2).active > a, .left .nav-pills > li:nth-child(2).active > a:hover, .left .nav-pills > li:nth-child(2).active > a:focus {
+    background-image: url(../images/icons/massage2-1.jpg);
+}
+
+.left .nav-pills > li:nth-child(3).active > a, .left .nav-pills > li:nth-child(3).active > a:hover, .left .nav-pills > li:nth-child(3).active > a:focus {
+    background-image: url(../images/icons/massage3-1.jpg);
+}
+
+.left .nav-pills > li:nth-child(4).active > a, .left .nav-pills > li:nth-child(4).active > a:hover, .left .nav-pills > li:nth-child(4).active > a:focus {
+    background-image: url(../images/icons/massage4-1.jpg);
+}
+
+.left .nav-pills > li:nth-child(5).active > a, .left .nav-pills > li:nth-child(5).active > a:hover, .left .nav-pills > li:nth-child(5).active > a:focus {
+    background-image: url(../images/icons/massage5-1.jpg);
+}
+
+.left .nav > li:nth-child(1) > a:hover, .left .nav > li:nth-child(1) > a:focus {
+    background-image: url(../images/icons/massage1-3.jpg);
+}
+
+.left .nav > li:nth-child(2) > a:hover, .left .nav > li:nth-child(2) > a:focus {
+    background-image: url(../images/icons/massage2-3.jpg);
+}
+
+.left .nav > li:nth-child(3) > a:hover, .left .nav > li:nth-child(3) > a:focus {
+    background-image: url(../images/icons/massage3-3.jpg);
+}
+
+.left .nav > li:nth-child(4) > a:hover, .left .nav > li:nth-child(4) > a:focus {
+    background-image: url(../images/icons/massage4-3.jpg);
+}
+
+.left .nav > li:nth-child(5) > a:hover, .left .nav > li:nth-child(5) > a:focus {
+    background-image: url(../images/icons/massage5-3.jpg);
+}

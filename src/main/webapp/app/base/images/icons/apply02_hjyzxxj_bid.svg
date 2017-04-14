@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6.1 (26313) - http://www.bohemiancoding.com/sketch -->
+    <title>design-24px-glyph-2_transform-origin</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.4">
+        <g id="综合应用-copy" transform="translate(-80.000000, -100.000000)">
+            <g id="card" transform="translate(70.000000, 60.000000)">
+                <g id="Group-2">
+                    <g id="Group-3" transform="translate(0.000000, 30.000000)">
+                        <g id="design-24px-glyph-2_transform-origin" transform="translate(10.000000, 10.000000)">
+                            <circle id="Oval-23" fill="#3CA8FF" cx="25" cy="25" r="25"></circle>
+                            <g id="Group" transform="translate(13.000000, 13.000000)" fill="#FFFFFF">
+                                <path d="M22,22 L2,22 L2,2 L22,2 L22,22 L22,22 Z M4,20 L20,20 L20,4 L4,4 L4,20 L4,20 Z" id="Shape"></path>
+                                <ellipse id="Oval" cx="12" cy="3" rx="3" ry="3"></ellipse>
+                                <ellipse id="Oval" cx="21" cy="3" rx="3" ry="3"></ellipse>
+                                <circle id="Oval" cx="3" cy="3" r="3"></circle>
+                                <ellipse id="Oval" cx="21" cy="12" rx="3" ry="3"></ellipse>
+                                <ellipse id="Oval" cx="3" cy="12" rx="3" ry="3"></ellipse>
+                                <circle id="Oval" cx="12" cy="12" r="3"></circle>
+                                <ellipse id="Oval" cx="12" cy="21" rx="3" ry="3"></ellipse>
+                                <circle id="Oval" cx="21" cy="21" r="3"></circle>
+                                <ellipse id="Oval" cx="3" cy="21" rx="3" ry="3"></ellipse>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,45 @@
+
+.ux_msg_body {
+	border:solid 2px;
+	border-top-color:#6699cc;
+	border-left-color:#6699cc;
+	border-right-color:#ecf5ff;
+	border-bottom-color:#ecf5ff;
+	background:#D7F8AB;
+	padding:2px;
+	font-family:ËÎÌו,Arial, Helvetica, sans-serif;
+	font-size:10pt;
+	text-overflow:ellipsis;
+	overflow-y:scroll;
+	/*overflow-x:hidden;*/
+	word-break:break-all;
+	word-wrap:break-word;
+	text-align:left;
+	display: block;
+}
+
+.ux-msg-default {
+	font-family:ËÎÌו,Arial, Helvetica, sans-serif;
+	font-size:10pt;
+	font-style:normal;
+	font-weight:normal;
+	text-decoration:none;
+	color:black;
+}
+
+.ux_msg_succs {
+	color:#113DEE;
+}
+
+.ux_msg_error {
+	color:#B3614D;
+}
+
+.ux-msg-time {
+	color:#CE20CE;
+}
+
+
+
+
+

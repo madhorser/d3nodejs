@@ -1,0 +1,39 @@
+body {margin:0;padding:0;border:0px;}
+
+/*查询条件、详细表单、增加、编辑表单float:left;*/
+.formbasic {
+    border: 0 solid #A8CFEB;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+.formbasic td {
+    background: none repeat scroll 0 0 #F1F6FF;
+    border: 0px solid #A8CFEB;
+    border-collapse: collapse;
+    height: 30px;
+    padding-right: 1px;
+    text-align: right;
+    word-wrap: break-word;
+}
+.formbasic th {
+    background: none repeat scroll 0 0 #F1F6FF;
+    border: 0px solid #A8CFEB;
+    border-collapse: collapse;
+    padding-left: 1px;
+    text-align: left;
+    word-wrap: break-word;
+}
+.formbasic fieldset {
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 2px;
+    margin-bottom: 12px;
+    overflow: hidden;
+    padding: 0 .625em;
+}
+
+.formbasic th textarea{
+	margin-top:3px; 
+	margin-bottom:3px;
+	resize:none;
+}
