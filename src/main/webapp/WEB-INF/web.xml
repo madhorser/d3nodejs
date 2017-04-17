@@ -7,7 +7,7 @@
   <context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-            classpath*:applicationContext-ontology.xml
+            classpath*:spring/corebean/context-ontology.xml
         </param-value>
 	</context-param>
 	

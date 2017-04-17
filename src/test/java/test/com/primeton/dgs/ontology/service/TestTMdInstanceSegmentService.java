@@ -39,7 +39,7 @@ public class TestTMdInstanceSegmentService      extends BaseTestCase{
 		map.put("start", 1);
 		map.put("end", 10);
 		
-		List<Map<String, Object>> list = tMdInstanceSegmentDAO.getListCateGoryMod(map);
+		List<Map<String, Object>> list = tMdInstanceSegmentDAO.getListCateGoryMod(null);
 		for(Map<String, Object> temp:list){
 			System.out.println(temp.get("SEG"));
 			System.out.println(temp.get("COLUM"));
@@ -59,7 +59,7 @@ public class TestTMdInstanceSegmentService      extends BaseTestCase{
 		}else{
 			map1.put("name", "1=1");
 		}
-		List<Map<String, Object>> list = tMdInstanceSegmentDAO.getListCateGory(map1);
+		List<Map<String, Object>> list = tMdInstanceSegmentDAO.getListCateGory(null);
 		for(Map<String,Object> map:list){
 			  for (String key : map.keySet()) {
 				   System.out.println(""+ key + " = " + map.get(key));

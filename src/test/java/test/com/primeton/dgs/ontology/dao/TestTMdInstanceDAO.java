@@ -53,7 +53,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 		System.err.println(tMdInstanceDAO);
 		Map<String,Object> parmap = new HashMap<String,Object>();
 		parmap.put("name", "A3");
-		List<Map<String,Object>> list = tMdInstanceDAO.getListCateGoryByName(parmap);
+		List<Map<String,Object>> list = tMdInstanceDAO.getListCateGoryByName(null);
 		for(Map<String,Object> map:list){
 			  for (String key : map.keySet()) {
 				  //System.out.println(""+ key + " = " + map.get(key));
@@ -73,7 +73,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 		System.err.println(tMdInstanceDAO);
 		Map<String,Object> parmap = new HashMap<String,Object>();
 		parmap.put("name", "A3");
-		List<Map<String,Object>> list = tMdInstanceDAO.getListCateGoryByName(parmap);
+		List<Map<String,Object>> list = tMdInstanceDAO.getListCateGoryByName(null);
 		StringBuilder sb = new StringBuilder();
 		sb.append("( ");
 		for(Map<String,Object> map:list){
@@ -92,7 +92,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 		System.out.println(sb);
 		if(null!=list&list.size()>0){
 		 parmap.put("tableids", sb.toString());
-		 list = tMdInstanceDAO.getListTable(parmap);
+		 list = tMdInstanceDAO.getListTable(null);
 			for(Map<String,Object> map:list){
 				  for (String key : map.keySet()) {
 					  if(key.equals("INSTANCE_NAME"))
@@ -107,7 +107,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 	public void count(){
 		Map<String,Object> parmap = new HashMap<String,Object>();
 		parmap.put("classid", "Column");
-		System.out.println(tMdInstanceDAO.count(parmap));
+		System.out.println(tMdInstanceDAO.count(null));
 	}
 	
 	@Test
@@ -157,7 +157,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 		
 		parmap.put("id", "hba1f06d815d446bb9a2630fc1769994");//库
 		
-		List<Map<String,Object>> list = tMdInstanceDAO.getListCateGoryAll(parmap);
+		List<Map<String,Object>> list = tMdInstanceDAO.getListCateGoryAll(null);
 		
 		System.out.println("总表数= " + list.size());
 		
@@ -210,7 +210,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 			  
 			
 			  parmap.put("id", map.get("INSTANCE_ID"));
-			  List<Map<String,Object>> list2 = tMdInstanceDAO.getListCateGoryAll(parmap);
+			  List<Map<String,Object>> list2 = tMdInstanceDAO.getListCateGoryAll(null);
 			 for(int j=0;j<list2.size();j++){
 					Map<String,Object> map1 = list2.get(j);
 					//System.out.println( map1.get("INSTANCE_CODE"));
@@ -258,7 +258,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 	public void getListRootCateGoryAll(){
 		Map<String,Object> parmap = new HashMap<String,Object>();
 		
-		List<Map<String,Object>> list = tMdInstanceDAO.getListRootCateGoryAll(parmap);
+		List<Map<String,Object>> list = tMdInstanceDAO.getListRootCateGoryAll(null);
 
 		for(Map<String,Object> map:list){
 			  for (String key : map.keySet()) {
@@ -268,7 +268,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 				  parmap.put("classid", map.get("CLASSIFIER_ID"));
 				  //System.out.println( map.get("CLASSIFIER_ID"));
 				  
-				  list = tMdInstanceDAO.getListSchemaCateGoryAll(parmap);
+				  list = tMdInstanceDAO.getListSchemaCateGoryAll(null);
 					for(Map<String,Object> map1:list){
 						  for (String key1 : map1.keySet()) {
 							  System.out.println(""+ key + " = " + map.get(key));

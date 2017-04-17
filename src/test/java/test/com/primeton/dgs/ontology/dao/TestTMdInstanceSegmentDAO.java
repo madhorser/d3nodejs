@@ -63,7 +63,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 		long sum = (row - 1) / pageCount + 1;
 		System.out.println(sum);
 
-		row = tMdInstanceDAO.count(parmap);
+		row = tMdInstanceDAO.count(null);
 		pageCount = 20000;
 		sum = (row - 1) / pageCount + 1;
 		System.out.println(sum);
@@ -121,7 +121,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 		// 查出库的分词
 		Map<String, Object> parmap = new HashMap<String, Object>();
 		parmap.put("classifierId", classifierType);
-		List<Map<String, Object>> schemaList = tMdInstanceSegmentDAO.getSegmentWord(parmap);
+		List<Map<String, Object>> schemaList = tMdInstanceSegmentDAO.getSegmentWord(null);
 		// 循环表的分词找到次数
 		String schemaName = "";
 		long maxTimes = 0;// 库分词出现最大次数
@@ -156,7 +156,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 				// maxTimesId = "";
 				parmap.put("classifierId", classifierChildType);
 				parmap.put("parentId", schemaList.get(i).get("INSTANCE_ID"));
-				tableList = tMdInstanceSegmentDAO.getSegmentWordByParentId(parmap);
+				tableList = tMdInstanceSegmentDAO.getSegmentWordByParentId(null);
 			}
 			for (int j = 0; j < tableList.size(); j++) {
 				// 一张表多个分词
@@ -190,7 +190,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 			// "Tablemap"
 			parmap.put("classifierId", classifierChildType);
 			parmap.put("schemaName", maxTimesName);
-			List<Map<String, Object>> tableList = tMdInstanceSegmentDAO.getMostTimeSegmentWord(parmap);
+			List<Map<String, Object>> tableList = tMdInstanceSegmentDAO.getMostTimeSegmentWord(null);
 			if (tableList.size() > 0) {
 				// MAXTIMES,SEGMENT_WORD
 				maxTimesObject = tableList.get(0).get("SEGMENT_WORD") + "";
@@ -225,7 +225,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 		Map<String, Object> parmap = new HashMap<String, Object>();
 		parmap.put("pid", "1=1");
 
-		List<Map<String, Object>> list = tMdInstanceSegmentDAO.getList(parmap);
+		List<Map<String, Object>> list = tMdInstanceSegmentDAO.getList(null);
 
 		for (Map<String, Object> map : list) {
 			uuid = UUID.randomUUID().toString().replaceAll("-", "");
@@ -249,7 +249,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 				}
 			}
 			System.err.println(parmap);
-			tMdInstanceSegmentDAO.updateids(parmap);
+			tMdInstanceSegmentDAO.updateids(null);
 
 		}
 	};

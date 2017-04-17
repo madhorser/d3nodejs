@@ -41,7 +41,7 @@ public class TestSegmentCodeDAO extends BaseTestCase {
 		Map<String, Object> parmap = new HashMap<String, Object>();
 		//parmap.put("classifierId", classifierType);
 		//TMdWordSimilarity 
-		List<Map<String, Object>> distanceList = tMdSegmentVoteDAO.getDistanceList(parmap);
+		List<Map<String, Object>> distanceList = tMdSegmentVoteDAO.getDistanceList(null);
 		
 		if (distanceList.size() > 1) {
 			//欧几里德

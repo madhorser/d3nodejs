@@ -49,7 +49,7 @@ public class SegmentRealationDAO extends BaseTestCase {
 				parTablemap.put("classifierId", "Columnmap");
 				parTablemap.put("segmentWord", map.get("SEGMENT_WORD"));
 				// 查询vote表
-				List<Map<String, Object>> tablelist = tMdInstanceSegmentDAO.getTableList(parTablemap);
+				List<Map<String, Object>> tablelist = tMdInstanceSegmentDAO.getTableList(null);
 				// 每循环一次找出所有的表-去重(程序去重太慢，手工去重)
 				List<Map<String, Object>> listCopy = new ArrayList<Map<String, Object>>();
 				listCopy.addAll(tablelist);
@@ -94,7 +94,7 @@ public class SegmentRealationDAO extends BaseTestCase {
 					
 					parentmap.put("tableids", sb.toString());
 					
-					List<Map<String, Object>> schemalist = tMdInstanceSegmentDAO.getSchemaList(parentmap);
+					List<Map<String, Object>> schemalist = tMdInstanceSegmentDAO.getSchemaList(null);
 					if (schemalist.size() > 1) {
 						List<Map<String, Object>> schemalistCopy = new ArrayList<Map<String, Object>>();
 						schemalistCopy.addAll(schemalist);
@@ -168,14 +168,14 @@ public class SegmentRealationDAO extends BaseTestCase {
 	public void updateSegmentId(String typeFrom,String typeTo) {
 		Map<String, Object> parmap = new HashMap<String, Object>();
 		parmap.put("classifierId", typeFrom);
-		List<Map<String, Object>> voteSchemaList = tMdSegmentVoteDAO.getSchemaVote(parmap);
+		List<Map<String, Object>> voteSchemaList = tMdSegmentVoteDAO.getSchemaVote(null);
 		//update T_MD_INSTANCE_SEGMENT_VOTE set parent_id = #{segmentId} 
 		//where PARENT_ID=#{instanceId} and CLASSIFIER_ID=#{classifierId}
 		parmap.put("classifierId", typeTo);
 		for (Map<String, Object> map : voteSchemaList) {
 			parmap.put("segmentId", map.get("SEGMENT_ID"));
 			parmap.put("instanceId", map.get("INSTANCE_ID"));
-			tMdSegmentVoteDAO.updateSegmentId(parmap);
+			tMdSegmentVoteDAO.updateSegmentId(null);
 		}
 	}
 
