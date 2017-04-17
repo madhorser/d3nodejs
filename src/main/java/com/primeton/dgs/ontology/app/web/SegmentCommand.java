@@ -33,6 +33,6 @@ public class SegmentCommand  extends AppDispatchCommand{
 		if (StringUtils.isNotEmpty(taskId)) {
 			// 目前暂时没有编辑操作
 		}
-		return "/ontology/segment/segment.jsp";
+		return "/app/ontology/segment/segment.jsp";
 	}
 }

@@ -48,6 +48,7 @@
 								<li class="menu-li" role="presentation"><a href="#analyse" data-toggle="tab"></a></li>
 								<li class="menu-li" role="presentation"><a href="#appliCenter" data-toggle="tab"></a></li>
 								<li class="menu-li" role="presentation"><a href="#search" data-toggle="tab"></a></li>
+								<li class="menu-li" role="presentation"><a href="#ontology" data-toggle="tab"></a></li>
 							</ul>
 						</div>
 					</div>
@@ -59,6 +60,7 @@
                             <div id="analyse" class="tab-pane fade">3</div>
                             <div id="appliCenter" class="tab-pane fade" role="tabpanel">4</div>
                             <div id="search" class="tab-pane fade" role="tabpanel">5</div>
+                            <div id="ontology" class="tab-pane fade" role="tabpanel">6</div>
                         </div>
 					</div>
 				</div>
@@ -220,6 +222,7 @@
 		$('.menu-li a').click(function() {
         	var h = $(this).attr('href');
           	var h2 = h.substring(1);
+          	console.log(h2);
           	$('#'+h2+" iframe").attr('src', $('#'+h2+" iframe").attr('src'));
      	})
      	
@@ -254,7 +257,7 @@
 		
 	    $(document).ready(function(){
 	   		
-	    	hiddenDIV();//控制隐藏权限	 
+	    	//hiddenDIV();//控制隐藏权限	 
 	   		
 	   		//处理页面加载不同sideBar
 	   		var jsonObj={
@@ -263,6 +266,7 @@
   					analyse:[{pageSrc:"app/analyse.jsp"}],
   					appliCenter:[{pageSrc:"app/appliCenter.jsp"}],
   					search:[{pageSrc:"app/mainSearch.jsp"}],
+  					ontology:[{pageSrc:"app/ontology.jsp"}]
 	   		}
 	   		
 	    	var temp="";
@@ -292,6 +296,10 @@
 	   				temp=formateString($("#template").val(),jsonObj.search[0]);
 	   				$("#search").html(temp);
 	   				$('#search .embed-responsive.embed-responsive-16by9').height($(window).height()-80);
+	   			}else if(tar.hash=="#ontology"){
+	   				temp=formateString($("#template").val(),jsonObj.ontology[0]);
+	   				$("#ontology").html(temp);
+	   				$('#ontology .embed-responsive.embed-responsive-16by9').height('100%');
 	   			}
 	   		});
 	   });
@@ -317,6 +325,7 @@
 				data : jsonObject,
 				success : function(data) {
 			        var dataObj=eval(data.data); 
+			        
 	       			for(var i=0;i<dataObj.length;i++){      
 	           			//依次判断菜单是否配置显示权限
 						if(dataObj[i]=="MM_MAIN_BROWERS"){
