@@ -79,7 +79,7 @@ public abstract class AbstractCommand {
 				this.fileupload.setHeaderEncoding(charset);
 			}
 		}
-		verifyLicense("Server"); //also can get from request
+		//verifyLicense("Server"); //also can get from request
 	}
 	
 	/**

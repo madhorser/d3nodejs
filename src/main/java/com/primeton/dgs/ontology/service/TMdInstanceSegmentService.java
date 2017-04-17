@@ -9,7 +9,7 @@ import java.util.Map;
 import com.primeton.dgs.ontology.pojos.TMdInstanceSegment;
 
 public interface TMdInstanceSegmentService {
-
+	String SPRING_NAME = "tMdInstanceSegmentService";
 	public List<TMdInstanceSegment> DealSegment();
 
 	public List<Map<String, Object>> getListCateGory(Map<Object,Object> map);

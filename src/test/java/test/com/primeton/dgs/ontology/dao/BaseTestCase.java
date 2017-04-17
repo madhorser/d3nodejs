@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.AbstractTransactionalJUnit4Spring
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath*:spring/corebean/context-ontology.xml")
 @Transactional
-@TransactionConfiguration(transactionManager = "transactionManager", defaultRollback = false)
+@TransactionConfiguration(transactionManager = "transactionManagerOntoLogy", defaultRollback = false)
 public class BaseTestCase extends AbstractTransactionalJUnit4SpringContextTests {  
 	private static final Logger log = Logger.getLogger(BaseTestCase.class);
 	
