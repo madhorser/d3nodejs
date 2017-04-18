@@ -1,5 +1,7 @@
 package test.com.primeton.dgs.ontology.dao;
 
+
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +21,7 @@ import com.primeton.dgs.ontology.pojos.TMdInstanceSegmentVote;
 //import com.primeton.dgs.ontology.pojos.TSegmentRealation;
 
 public class TestTMdInstanceSegmentDAO extends BaseTestCase {
-
+	
 	@Autowired
 	private TMdInstanceSegmentDAO tMdInstanceSegmentDAO;
 
