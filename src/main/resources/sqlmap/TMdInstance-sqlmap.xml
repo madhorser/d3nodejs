@@ -86,5 +86,30 @@
 	            <include refid="findByPageCondition" />  
 	       
 	    </select> 
+	    
+	    <select id="findById" parameterClass="parameterMap" resultClass="TMdInstance">  
+	        <![CDATA[  
+	            select * from T_MD_INSTANCE    where 1=1  
+	        ]]>  
+	         
+	            <include refid="findByPageCondition" />  
+	       
+	    </select> 
+	    
+	    
+	    <select id="getListTable" parameterClass="parameterMap"  resultClass="java.util.HashMap">  
+	    	
+            SELECT * FROM (SELECT ROWNUM AS rowno, t.*  FROM T_MD_INSTANCE t
+            WHERE  ROWNUM &lt;= #limit# and INSTANCE_ID in $tableids$
+			  
+            ) table_alias
+             WHERE table_alias.rowno &gt;= #start#
+             
+	    </select>  
+	    
+	   <select id="getListSchemaCateGoryAll" parameterClass="parameterMap"  resultClass="java.util.HashMap">  
+            select * from T_MD_INSTANCE where 1=1
+            <include refid="findByPageCondition" /> 
+	    </select>  
     
 </sqlMap>

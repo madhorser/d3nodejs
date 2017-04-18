@@ -271,13 +271,13 @@
 		    <version>14</version>
 		</dependency>
 
-		
+		<!-- 
 		<dependency>
             <groupId>org.ansj</groupId>
             <artifactId>ansj_seg</artifactId>
             <version>${ansj_seg.version}</version>
         </dependency>
-        
+         -->
 
         <dependency>
 	    	<groupId>javax.servlet</groupId>
