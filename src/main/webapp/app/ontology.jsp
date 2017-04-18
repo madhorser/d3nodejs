@@ -169,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         </div>
         <div class="well well-top" id="modelchange">
-            <a href="modelChange/modelChangeList.jsp"><img src="base/images/icons/apply02_mxbggl.svg"></a>
+            <a href="ontology/bentiguanli/ontologyMG.jsp"><img src="base/images/icons/apply02_mxbggl.svg"></a>
             <div class="well-inner">
                 <strong>本体管理</strong>
                 <p>元数据模型变更管理和模型变更分析管理</p>
@@ -267,7 +267,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			if(roleIds==""){
 				//top.location.href = "../login.do";//parent.location.href
 			}else{
-				hiddenDIV();
+				//hiddenDIV();
 			}	   	                                                  
    		});
    		
