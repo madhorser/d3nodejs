@@ -89,15 +89,12 @@
              WHERE table_alias.rowno &gt;= #start#
              
 	    </select>  
-	     
-	     
-	    <select id="findByCount" parameterClass="parameterMap" resultClass="long">  
+	    
+	    <!-- isnull(count(*),0) -->
+	    <select id="count" parameterClass="parameterMap" resultClass="long">  
 	        <![CDATA[  
-	            SELECT COUNT(*) FROM T_MD_INSTANCE_SEGMENT t   where 1=1  
+	            SELECT count(1) FROM T_MD_INSTANCE where  CLASSIFIER_ID=#{classid}#
 	        ]]>  
-	         
-	            <include refid="findByPageCondition" />  
-	         
 	    </select> 
 	    
   </sqlMap>

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.primeton.dgs.ontology.dao.TMdInstanceDAO;
 import com.primeton.dgs.ontology.dao.TMdInstanceSegmentDAO;
+import com.primeton.dgs.ontology.pojos.ParameterMap;
 import com.primeton.dgs.ontology.pojos.TMdInstanceSegment;
 import com.primeton.dgs.ontology.pojos.TMdInstanceSegmentVote;
 //import com.primeton.dgs.ontology.pojos.TSegmentRealation;
@@ -52,10 +53,29 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 
 	@Test
 	//@Ignore
-	public void insert() {
-		Map<String, Object> parmap = new HashMap<String, Object>();
-		// System.out.println(tMdInstanceDAO.count(parmap));
-		parmap.put("classid", "Column");
+	public void segmentWord() {
+		insert("Column");
+		insert("Table");
+	}
+	
+	/**
+	 * 分词后入库
+	 * @param type 分字段、表还是库
+	 */
+	public void insert(String type) {
+		
+		/*
+		Map<Object, Object> parameterMap = new ParameterMap("start", 0,"limit", 10,"parentId", "m0841ec0aa2811e08be5ec91b51c864c");
+		List<Map<String,Object>> list = tMdInstanceDAO.getList(parameterMap);
+		for(Map<String,Object> map:list){
+			  for (String key : map.keySet()) {
+				   System.out.println(""+ key + " = " + map.get(key));
+			  }
+		}
+		*/
+		
+		//Map<String, Object> parmap = new HashMap<String, Object>();
+		//parmap.put("classid", "Column");
 		// parmap.put("classid", "Table");
 		// parmap.put("classid", "Schema");
 		long row = 501;
@@ -63,24 +83,27 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 		long sum = (row - 1) / pageCount + 1;
 		System.out.println(sum);
 
-		row = tMdInstanceDAO.count(null);
+		//
+		Map<Object, Object> parameterMap = new ParameterMap("classid", type);
+		row = tMdInstanceDAO.count(parameterMap);
 		pageCount = 20000;
 		sum = (row - 1) / pageCount + 1;
 		System.out.println(sum);
 		for (long page = 0; page < sum; page++) {
-			parmap.put("start", page * pageCount);
-			parmap.put("limit", page * pageCount + pageCount);
-			parmap.put("classid", "Column");
+			parameterMap = new ParameterMap("classid", type,"start", page * pageCount,"limit", page * pageCount + pageCount);
+			//parmap.put("start", page * pageCount);
+			//parmap.put("limit", page * pageCount + pageCount);
+			//parmap.put("classid", "Column");
 			// parmap.put("classid", "Table");
 			 //parmap.put("classid", "Schema");
 			// parmap.put("classid", "S");
-			List<Map<String, Object>> list = tMdInstanceDAO.getList(null);
+			List<Map<String, Object>> list = tMdInstanceDAO.getList(parameterMap);
 			System.err.println(sum + "<=======>" + page);
 			for (Map<String, Object> map : list) {
-				//List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_NAME") + "").getTerms();
-				List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_CODE") + "").getTerms();
+				List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_NAME") + "").getTerms();
+				//List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_CODE") + "").getTerms();
 				for (Term term : list1) {
-					// System.err.println(term.getName());
+					// 分词规则
 					if (term.getName().length() == 1)
 						continue;
 					if (term.getName().equals("_") || term.getName().equals("id") || term.getName().equals("is"))

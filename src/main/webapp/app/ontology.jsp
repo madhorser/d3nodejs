@@ -159,15 +159,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="part1">    
      <!-- ---------------------------------------------------------------------------------- -->
     <div class="block">
-        <p><strong>系统运维管理</strong></p>
+        <p><strong>术语管理</strong></p>
         <div class="well well-top" id="contrast">
-            <a href="contrast/contrastTask.jsp"><img src="base/images/icons/apply02_hjyzxxj.svg"></a>
+            <a href="ontology/segment/segment.jsp"><img src="base/images/icons/apply02_hjyzxxj.svg"></a>
             <div class="well-inner">
-                <strong>环境一致性巡检</strong>
-                <p>根据定制的巡检规则通过巡检任务获取系统巡检报告</p>
+                <strong>术语提取</strong>
+                <p>根据术语提取任务提取术语并对任务状态进行查看</p>
             </div>
 
         </div>
+        
+        
         <div class="well well-top" id="modelchange">
             <a href="modelChange/modelChangeList.jsp"><img src="base/images/icons/apply02_mxbggl.svg"></a>
             <div class="well-inner">
