@@ -28,7 +28,20 @@
         <!--创建一个临时目录-->  
         <target name="init" description="创建目录" depends="clean">  
             <echo message="创建目录--以执行" />  
-            <mkdir dir="${build.class}" />  
+            <mkdir dir="${build.class}" /> 
+            <copy todir="${build.class}">  
+                     <fileset dir="${basedir}/src/main/java">  
+                    <exclude name="**/*.java" /> 
+                 </fileset>  
+            </copy>
+            <copy todir="${build.class}">  
+                     <fileset dir="${basedir}/src/main/resources">  
+                    <include name="**/*.*" /> 
+                    <exclude name="**/test-context-web-core.xml" /> 
+                    <exclude name="**/jdbc.properties" /> 
+                    <exclude name="**/log4j.properties" /> 
+                 </fileset>  
+            </copy>
         </target>  
       
       
@@ -56,6 +69,18 @@
                 <classes dir="${build.class}" />  
             </war>  
         </target>  
+    	
+    	 <target name="jar" depends="compile">
+    	 	   <delete dir="${basedir}/dist/primeton-ontology.jar" />  
+    	       <jar destfile="${basedir}/dist/primeton-ontology.jar" basedir="${build.class}">
+  
+                <include name="**/**.*" />  
+                <exclude name="**/*.jar"/>  
+                <exclude name="com/primeton/dgs/kernel/core/web/**/*.class"/>  
+            	<exclude name="test/com/primeton/dgs/ontology/**/*.class"/>  
+    	       </jar>
+
+    	 </target>
       
       
         <!--把WAR放到一个指定目录，这里是直接布署到TOMCAT服务器-->  
