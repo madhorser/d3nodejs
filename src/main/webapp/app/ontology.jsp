@@ -134,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="well well-top">
             <a ><img src="base/images/icons/apply01_xqgl_bid.svg"></a>
             <div class="well-inner">
-                <strong>需求管理</strong>
+                <strong>领域管理(暂不实现)</strong>
                 <p>可定制元数据系统需求开发并管理系统需求更新</p>
             </div>
 
@@ -142,14 +142,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="well well-top">
             <a ><img src="base/images/icons/apply01_mxgl_bid.svg"></a>
             <div class="well-inner">
-                <strong>模型管理</strong>
+                <strong>模术语理</strong>
                 <p>符合企业数据仓库环境的各类元数据管理模型</p>
             </div>
         </div>
         <div class="well well-top">
             <a ><img src="base/images/icons/apply01_kfsxzdh_bid.svg"></a>
             <div class="well-inner">
-                <strong>开发上线自动化</strong>
+                <strong>元数据管理</strong>
                 <p>企业元数据管理系统的快速部署与企业咸阳认证系统的无缝集成</p>
             </div>
         </div>
@@ -163,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="well well-top" id="contrast">
             <a href="contrast/contrastTask.jsp"><img src="base/images/icons/apply02_hjyzxxj.svg"></a>
             <div class="well-inner">
-                <strong>环境一致性巡检</strong>
+                <strong>关系管理</strong>
                 <p>根据定制的巡检规则通过巡检任务获取系统巡检报告</p>
             </div>
 
@@ -171,14 +171,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="well well-top" id="modelchange">
             <a href="modelChange/modelChangeList.jsp"><img src="base/images/icons/apply02_mxbggl.svg"></a>
             <div class="well-inner">
-                <strong>模型变更管理</strong>
+                <strong>本体管理</strong>
                 <p>元数据模型变更管理和模型变更分析管理</p>
             </div>
         </div>
         <div class="well well-top" id="sysversion">
             <a href="version/version.jsp"><img src="base/images/icons/apply02_xtbbwh.svg"></a>
             <div class="well-inner">
-                <strong>系统版本维护</strong>
+                <strong>本体应用【高度提升？？？】</strong>
                 <p>系统版本控制，支持系统发布、系统发布等常见系统管理</p>
             </div>
         </div>
@@ -196,11 +196,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <div class="part2">
 	<div class="block">
-        <p><strong>业务元数据管理</strong></p>
+        <p><strong>xxxxx业务元数据管理</strong></p>
         <div class="well well-top">
             <a ><img src="base/images/icons/apply03_ywysjwh_bid.svg"></a>
             <div class="well-inner">
-                <strong>业务元数据维护</strong>
+                <strong>xxxxx业务元数据维护</strong>
                 <p>提供多种需求的图形化方式元数据维护和分析报告</p>
             </div>
 
@@ -208,7 +208,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="well well-top">
             <a ><img src="base/images/icons/apply03_ywysjll_bid.svg"></a>
             <div class="well-inner">
-                <strong>业务元数据浏览</strong>
+                <strong>xxxxx业务元数据浏览</strong>
                 <p>支持元数据批量导出及分析结果导出</p>
             </div>
         </div>
