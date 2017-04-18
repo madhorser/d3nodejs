@@ -23,7 +23,7 @@ public class TestTMdInstanceDAO    extends BaseTestCase{
 	private TMdInstanceDAO  tMdInstanceDAO;
 	
 	@Test
-	//@Ignore
+	@Ignore
 	public void testGetList(){
 		System.err.println(tMdInstanceDAO);
 		Map<Object, Object> parameterMap = new ParameterMap("start", 0,"limit", 10,"parentId", "m0841ec0aa2811e08be5ec91b51c864c");

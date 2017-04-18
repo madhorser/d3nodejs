@@ -11,6 +11,7 @@ import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.primeton.dgs.ontology.dao.TMdInstanceDAO;
+import com.primeton.dgs.ontology.pojos.ParameterMap;
 import com.primeton.dgs.ontology.pojos.TMdInstance;
 
 @Scope("prototype")
@@ -43,9 +44,8 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 
 	@Override
 	public TMdInstance findById(String id) {
-		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
-		//return mapper.findById(id);
-		return null;
+		Map<Object, Object> parameterMap = new ParameterMap("instanceId", id);
+		return (TMdInstance)getSqlMapClientTemplate().queryForObject("TMdInstance.findById", parameterMap);
 	}
 
 	@Override
@@ -57,7 +57,6 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 	@Override
 	public List<Map<String, Object>> getList(Map<Object, Object> map) {
 		List<Map<String, Object>> list =  getSqlMapClientTemplate().queryForList("TMdInstance.findByPage2", map);
-		
 		return list;
 	}
 
@@ -79,21 +78,21 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 	public List<Map<String, Object>> getListTable(Map<Object,Object> map) {
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.getListTable(map);
-		return null;
+		return getSqlMapClientTemplate().queryForList("TMdInstance.getListTable", map);
 	}
 
 	@Override
 	public long count(Map<Object,Object> map) {
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.count(map);
-		return 0;
+		return (Long)getSqlMapClientTemplate().queryForObject("TMdInstance.findByCount", map);
 	}
 
 	@Override
 	public List<Map<String, Object>> getListCateGoryAll(Map<Object,Object> map) {
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.getListCateGoryAll(map);
-		return null;
+		return  getSqlMapClientTemplate().queryForList("getListSchemaCateGoryAll", map);
 	}
 
 	@Override
@@ -107,7 +106,7 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 	public List<Map<String, Object>> getListSchemaCateGoryAll(Map<Object,Object> map) {
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.getListSchemaCateGoryAll(map);
-		return null;
+		return  getSqlMapClientTemplate().queryForList("getListSchemaCateGoryAll", map);
 	}
 
 	@Override
