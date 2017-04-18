@@ -56,7 +56,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 	@Test
 	//@Ignore
 	public void segmentWord() {
-		insert("Column");
+		//insert("Column");
 		insert("Table");
 	}
 	
@@ -106,6 +106,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 				//List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_CODE") + "").getTerms();
 				for (Term term : list1) {
 					// 分词规则
+					System.out.println(term);
 					if (term.getName().length() == 1)
 						continue;
 					if (term.getName().equals("_") || term.getName().equals("id") || term.getName().equals("is"))
