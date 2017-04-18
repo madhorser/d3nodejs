@@ -15,7 +15,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractTransactionalJUnit4SpringContextTests;  
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations="classpath*:spring/corebean/context-ontology.xml")
+//@ContextConfiguration(locations="classpath*:spring/corebean/context-ontology.xml")
+@ContextConfiguration(locations={"classpath*:spring/corebean/context-ontology.xml","classpath*:spring/corebean/test-context-web-core.xml"})
 @Transactional
 @TransactionConfiguration(transactionManager = "transactionManagerOntoLogy", defaultRollback = false)
 public class BaseTestCase extends AbstractTransactionalJUnit4SpringContextTests {  
