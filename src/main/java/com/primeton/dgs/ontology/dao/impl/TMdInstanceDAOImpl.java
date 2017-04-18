@@ -83,16 +83,9 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 
 	@Override
 	public long count(Map<Object,Object> map) {
-<<<<<<< HEAD
-		
-		//long num =  getSqlMapClientTemplate().queryForList("TMdInstanceSegment.count", map);
-		Long num =  (Long)getSqlMapClientTemplate().queryForObject("TMdInstanceSegment.count", map);
-		return num;
-=======
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.count(map);
 		return (Long)getSqlMapClientTemplate().queryForObject("TMdInstance.findByCount", map);
->>>>>>> a02075f55eabef59068b002a1d94015a9b592de3
 	}
 
 	@Override
