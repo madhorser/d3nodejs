@@ -132,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="block">
         <p><strong>系统开发管控</strong></p>
         <div class="well well-top">
-            <a ><img src="base/images/icons/apply01_xqgl_bid.svg"></a>
+            <a href="ontology/lingyuguanli/lingyuMG.jsp"><img src="base/images/icons/apply01_xqgl_bid.svg"></a>
             <div class="well-inner">
                 <strong>领域管理(暂不实现)</strong>
                 <p>可定制元数据系统需求开发并管理系统需求更新</p>
@@ -140,14 +140,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         </div>
         <div class="well well-top">
-            <a ><img src="base/images/icons/apply01_mxgl_bid.svg"></a>
+            <a href="ontology/shuyuguanli/shuyunMG.jsp"><img src="base/images/icons/apply01_mxgl_bid.svg"></a>
             <div class="well-inner">
-                <strong>模术语理</strong>
+                <strong>术语管理</strong>
                 <p>符合企业数据仓库环境的各类元数据管理模型</p>
             </div>
         </div>
         <div class="well well-top">
-            <a ><img src="base/images/icons/apply01_kfsxzdh_bid.svg"></a>
+            <a href="ontology/yuanshujuguanli/yuanshujuMG.jsp"><img src="base/images/icons/apply01_kfsxzdh_bid.svg"></a>
             <div class="well-inner">
                 <strong>元数据管理</strong>
                 <p>企业元数据管理系统的快速部署与企业咸阳认证系统的无缝集成</p>
@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="block">
         <p><strong>系统运维管理</strong></p>
         <div class="well well-top" id="contrast">
-            <a href="contrast/contrastTask.jsp"><img src="base/images/icons/apply02_hjyzxxj.svg"></a>
+            <a href="ontology/guanxiguanli/guanxiguanliMG.jsp"><img src="base/images/icons/apply02_hjyzxxj.svg"></a>
             <div class="well-inner">
                 <strong>关系管理</strong>
                 <p>根据定制的巡检规则通过巡检任务获取系统巡检报告</p>
@@ -176,7 +176,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
         <div class="well well-top" id="sysversion">
-            <a href="version/version.jsp"><img src="base/images/icons/apply02_xtbbwh.svg"></a>
+            <a href="ontology/bentiyingyong/bentiyingyongMG.jsp"><img src="base/images/icons/apply02_xtbbwh.svg"></a>
             <div class="well-inner">
                 <strong>本体应用【高度提升？？？】</strong>
                 <p>系统版本控制，支持系统发布、系统发布等常见系统管理</p>
