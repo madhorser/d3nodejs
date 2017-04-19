@@ -97,11 +97,17 @@
 	        ]]>  
 	    </select> 
 	    
-	    <insert id="insertSegmentTask" parameterClass="TMdInstanceSegment">
+	    <insert id="insertSegmentTask" parameterClass="TSegmentTask">
         	INSERT INTO 
         	T_SEGMENT_TASK(TASK_ID, TASK_NAME, SEGMENT_FROM, INSERT_TIME, UPDATE_TIME, SEGMENT_RULE, STATUS, TASK_RESULT) 
         	VALUES
         	(#taskId:VARCHAR#, #taskName:VARCHAR#, #segmentFrom:VARCHAR#, #insertTime:VARCHAR#, #updateTime:VARCHAR#, #segmentRule:VARCHAR#, #status:VARCHAR#, #taskResult:VARCHAR#)
         </insert>
+        
+         <update id="updateStatus" parameterClass="TSegmentTask">
+        	UPDATE T_SEGMENT_TASK
+	        set STATUS=#status:VARCHAR#, TASK_RESULT=#taskResult:VARCHAR#, UPDATE_TIME=#updateTime:VARCHAR#
+	        WHERE task_id=#taskId:VARCHAR#
+    	</update>
         
   </sqlMap>

@@ -17,6 +17,7 @@ public class TSegmentTask implements java.io.Serializable {
 	protected String segmentRule;
 	
 	protected String status;
+	//1.等待执行；2执行中；3失败；4成功
 	protected String taskResult;
 	
 	public String getTaskId() {
@@ -78,7 +79,10 @@ public class TSegmentTask implements java.io.Serializable {
 	public String getTaskResult() {
 		return taskResult;
 	}
-	
+	/**
+	 * 1.等待执行；2执行中；3失败；4成功
+	 * @param taskResult
+	 */
 	public void setTaskResult(String taskResult) {
 		this.taskResult = taskResult;
 	}

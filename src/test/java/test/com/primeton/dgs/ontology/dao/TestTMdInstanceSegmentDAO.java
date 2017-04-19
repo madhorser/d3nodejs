@@ -2,7 +2,9 @@ package test.com.primeton.dgs.ontology.dao;
 
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,10 +18,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.primeton.dgs.ontology.dao.TMdInstanceDAO;
 import com.primeton.dgs.ontology.dao.TMdInstanceSegmentDAO;
+import com.primeton.dgs.ontology.dao.TSegmentTaskDAO;
 import com.primeton.dgs.ontology.pojos.ParameterMap;
 import com.primeton.dgs.ontology.pojos.TMdInstanceSegment;
 import com.primeton.dgs.ontology.pojos.TMdInstanceSegmentVote;
 //import com.primeton.dgs.ontology.pojos.TSegmentRealation;
+import com.primeton.dgs.ontology.pojos.TSegmentTask;
 
 public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 	
@@ -28,6 +32,9 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 
 	@Autowired
 	private TMdInstanceDAO tMdInstanceDAO;
+	
+	@Autowired
+	private TSegmentTaskDAO tSegmentTaskDAO;
 
 	@Test
 	@Ignore
@@ -56,16 +63,32 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 	@Test
 	//@Ignore
 	public void segmentWord() {
+		//修改任务表的状态：任务表状态。
+		TSegmentTask task = new TSegmentTask();
 		//获取库名instance_id 全部分词或者部分库分词
 		String taskId = "taskId";
-		String schemaIds = "all";
-		String wordType = "叹词";
-		if(schemaIds.equals("all")){
-			//insert("Column",wordType,taskId);
-			insert("Table",wordType,taskId);
-		}else {
-			insertPart(schemaIds, wordType,taskId);
+		try {
+			String schemaIds = "all";
+			String wordType = "叹词";
+			if(schemaIds.equals("all")){
+				//insert("Column",wordType,taskId);
+				insert("Table",wordType,taskId);
+			}else {
+				insertPart(schemaIds, wordType,taskId);
+			}
+			task.setStatus("4");
 		}
+		catch (Exception e) {
+			task.setStatus("3");
+			task.setTaskResult(e.getMessage());
+			e.printStackTrace();
+		}finally {
+			task.setTaskId(taskId);
+			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");// 设置日期格式
+			task.setUpdateTime(df.format(new Date()));//获取当前系统时间
+			tSegmentTaskDAO.updateStatus(task);
+		}
+		
 	}
 	
 	/**

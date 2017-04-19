@@ -14,10 +14,8 @@ public interface TSegmentTaskDAO {
 
 	public long count(Map<Object,Object> map);
 
-	public void update(Map<Object,Object> map);
+	public void updateStatus(TSegmentTask obj);
 
-	public void updateids(Map<Object,Object> map);
-	
 	public List<Map<String, Object>> getSchemaList(Map<Object,Object> map);
 
 }

@@ -7,9 +7,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.primeton.dgs.ontology.dao.TMdInstanceSegmentDAO;
 import com.primeton.dgs.ontology.dao.TSegmentTaskDAO;
 import com.primeton.dgs.ontology.pojos.TSegmentTask;
+import com.primeton.dgs.tools.IdGenerate;
 
 /**
  * 术语提取任务
@@ -19,7 +19,6 @@ import com.primeton.dgs.ontology.pojos.TSegmentTask;
  * Company: 普元信息技术股份有限公司
  * <p>
  * 
- * @author zengqc@primeton.com
  * @version 1.0.0
  */
 
@@ -40,10 +39,8 @@ public class SegmentTaskDao extends BaseTestCase {
 		//等待执行
 		task.setStatus("1");
 		task.setTaskName("");
-		task.setTaskResult("");
+		task.setTaskId(IdGenerate.uuidGen());
+		tSegmentTaskDao.insertSegmentTask(task);
 	}
 
-	public static void main(String[] args) {
-		
-	}
 }
