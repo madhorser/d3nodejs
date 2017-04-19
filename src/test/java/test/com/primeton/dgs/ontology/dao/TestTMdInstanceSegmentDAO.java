@@ -57,13 +57,14 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 	//@Ignore
 	public void segmentWord() {
 		//获取库名instance_id 全部分词或者部分库分词
+		String taskId = "taskId";
 		String schemaIds = "all";
 		String wordType = "叹词";
 		if(schemaIds.equals("all")){
-			insert("Column",wordType);
-			insert("Table",wordType);
+			//insert("Column",wordType,taskId);
+			insert("Table",wordType,taskId);
 		}else {
-			insertPart(schemaIds, wordType);
+			insertPart(schemaIds, wordType,taskId);
 		}
 	}
 	
@@ -71,7 +72,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 	 * 分词后入库
 	 * @param type 分字段、表还是库
 	 */
-	public void insert(String type,String wordType) {
+	public void insert(String type,String wordType,String taskId) {
 		//Map<String, Object> parmap = new HashMap<String, Object>();
 		//parmap.put("classid", "Column");
 		// parmap.put("classid", "Table");
@@ -96,7 +97,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 			List<Map<String, Object>> list = tMdInstanceDAO.getList(parameterMap);
 			System.err.println(sum + "<=======>" + page);
 			for (Map<String, Object> map : list) {
-				divideInsert(map,wordType);
+				divideInsert(map,wordType,taskId);
 			}
 		}
 	}
@@ -104,7 +105,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 	 * 分词后入库
 	 * @param type 分字段、表还是库
 	 */
-	public void insertPart(String ids,String wordType) {
+	public void insertPart(String ids,String wordType,String taskId) {
 
 		long row = 501;
 		long pageCount = 20;
@@ -128,19 +129,19 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 			System.err.println(sum + "<=======>" + page);
 			//循环所有表分词
 			for (Map<String, Object> map : list) {
-				divideInsert(map,wordType);
+				divideInsert(map,wordType,taskId);
 				String tableIdString = map.get("instance_id")+"";
 				parameterMap = new ParameterMap("parentIds", tableIdString,"start", page * pageCount,"limit", page * pageCount + pageCount);
 				//循环所有column分词
 				List<Map<String, Object>> columnList = tMdInstanceDAO.getListByids(parameterMap);
 				for (Map<String, Object> columnMap : columnList) {
-					divideInsert(columnMap,wordType);
+					divideInsert(columnMap,wordType,taskId);
 				}
 			}
 		}
 	}
 	//筛选分词并入库
-	public void divideInsert(Map<String, Object> map,String wordType){
+	public void divideInsert(Map<String, Object> map,String wordType,String taskId){
 			List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_NAME") + "").getTerms();
 			//List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_CODE") + "").getTerms();
 			for (Term term : list1) {
@@ -172,6 +173,7 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 				tMdInstanceSegment.setParentId(parentId);
 				tMdInstanceSegment.setNature(nature);
 				tMdInstanceSegment.setChinese(chinese);
+				tMdInstanceSegment.setTaskId(taskId);
 				tMdInstanceSegmentDAO.insert(tMdInstanceSegment);
 			}
 	}
@@ -202,12 +204,6 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 		}
 		if(type.equals("Dg")){
 			return "副语素";
-		}
-		if(type.equals("d")){
-			return "副词";
-		}
-		if(type.equals("e")){
-			return "叹词";
 		}
 		if(type.equals("d")){
 			return "副词";
@@ -305,7 +301,10 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 		if(type.equals("z")){
 			return "状态词";
 		}
-		return "";
+		if(type.equals("en")){
+			return "字母或英文";
+		}
+		return "无法识别";
 	}
 	/**
 	 * 根据分词数据选举出库和表本体分词

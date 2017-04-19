@@ -11,6 +11,18 @@ public class TMdInstanceSegment implements java.io.Serializable {
 	protected String instanceId;
 	
 	protected String parentId;
+	
+	protected String taskId;
+
+	
+	public String getTaskId() {
+		return taskId;
+	}
+
+	
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
+	}
 
 	public String getParentId() {
 		return parentId;

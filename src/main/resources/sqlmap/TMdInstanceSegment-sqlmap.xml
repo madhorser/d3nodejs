@@ -99,9 +99,9 @@
 	    
 	    <insert id="insertTMdInstanceSegment" parameterClass="TMdInstanceSegment">
         	insert into 
-        	T_MD_INSTANCE_SEGMENT(INSTANCE_ID,INSTANCE_CODE,INSTANCE_NAME,CLASSIFIER_ID,PARENT_ID,NAMESPACE,SEGMENT_WORD,NATURE,CHINESE) 
+        	T_MD_INSTANCE_SEGMENT(INSTANCE_ID,INSTANCE_CODE,INSTANCE_NAME,CLASSIFIER_ID,PARENT_ID,NAMESPACE,SEGMENT_WORD,NATURE,CHINESE，TASK_ID) 
         	VALUES
-        	(#instanceId:VARCHAR#, #instanceCode:VARCHAR#, #instanceName:VARCHAR#, #classifierId:VARCHAR#, #parentId:VARCHAR#, #namespace:VARCHAR#, #segmentWord:VARCHAR#, #nature:VARCHAR#, #chinese:VARCHAR#)
+        	(#instanceId:VARCHAR#, #instanceCode:VARCHAR#, #instanceName:VARCHAR#, #classifierId:VARCHAR#, #parentId:VARCHAR#, #namespace:VARCHAR#, #segmentWord:VARCHAR#, #nature:VARCHAR#, #chinese:VARCHAR#, #taskId:VARCHAR#)
         </insert>
         
          
