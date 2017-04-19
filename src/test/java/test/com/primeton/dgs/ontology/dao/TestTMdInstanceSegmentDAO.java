@@ -56,26 +56,22 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 	@Test
 	//@Ignore
 	public void segmentWord() {
-		//insert("Column");
-		insert("Table");
+		//获取库名instance_id 全部分词或者部分库分词
+		String schemaIds = "all";
+		String wordType = "叹词";
+		if(schemaIds.equals("all")){
+			insert("Column",wordType);
+			insert("Table",wordType);
+		}else {
+			insertPart(schemaIds, wordType);
+		}
 	}
 	
 	/**
 	 * 分词后入库
 	 * @param type 分字段、表还是库
 	 */
-	public void insert(String type) {
-		
-		/*
-		Map<Object, Object> parameterMap = new ParameterMap("start", 0,"limit", 10,"parentId", "m0841ec0aa2811e08be5ec91b51c864c");
-		List<Map<String,Object>> list = tMdInstanceDAO.getList(parameterMap);
-		for(Map<String,Object> map:list){
-			  for (String key : map.keySet()) {
-				   System.out.println(""+ key + " = " + map.get(key));
-			  }
-		}
-		*/
-		
+	public void insert(String type,String wordType) {
 		//Map<String, Object> parmap = new HashMap<String, Object>();
 		//parmap.put("classid", "Column");
 		// parmap.put("classid", "Table");
@@ -84,15 +80,13 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 		long pageCount = 20;
 		long sum = (row - 1) / pageCount + 1;
 		System.out.println(sum);
-
-		//
-		Map<Object, Object> parameterMap = new ParameterMap("classid", type);
+		Map<Object, Object> parameterMap = new ParameterMap("classifierId", type);
 		row = tMdInstanceDAO.count(parameterMap);
 		pageCount = 20000;
 		sum = (row - 1) / pageCount + 1;
 		System.out.println(sum);
 		for (long page = 0; page < sum; page++) {
-			parameterMap = new ParameterMap("classid", type,"start", page * pageCount,"limit", page * pageCount + pageCount);
+			parameterMap = new ParameterMap("classifierId", type,"start", page * pageCount,"limit", page * pageCount + pageCount);
 			//parmap.put("start", page * pageCount);
 			//parmap.put("limit", page * pageCount + pageCount);
 			//parmap.put("classid", "Column");
@@ -102,35 +96,217 @@ public class TestTMdInstanceSegmentDAO extends BaseTestCase {
 			List<Map<String, Object>> list = tMdInstanceDAO.getList(parameterMap);
 			System.err.println(sum + "<=======>" + page);
 			for (Map<String, Object> map : list) {
-				List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_NAME") + "").getTerms();
-				//List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_CODE") + "").getTerms();
-				for (Term term : list1) {
-					// 分词规则
-					System.out.println(term);
-					if (term.getName().length() == 1)
-						continue;
-					if (term.getName().equals("_") || term.getName().equals("id") || term.getName().equals("is"))
-						continue;
-					TMdInstanceSegment tMdInstanceSegment = new TMdInstanceSegment();
-					tMdInstanceSegment.setSegmentWord(term.getName());
-					String instanceId = map.get("INSTANCE_ID") + "";
-					tMdInstanceSegment.setInstanceId(instanceId);
-					String instanceCode = map.get("INSTANCE_CODE") + "";
-					tMdInstanceSegment.setInstanceCode(instanceCode);
-					String instanceName = map.get("INSTANCE_NAME") + "";
-					tMdInstanceSegment.setInstanceName(instanceName);
-					String classifierId = map.get("CLASSIFIER_ID") + "map";
-					tMdInstanceSegment.setClassifierId(classifierId);
-					String namespace = map.get("NAMESPACE") + "";
-					tMdInstanceSegment.setNamespace(namespace);
-					String parentId = map.get("PARENT_ID") + "";
-					tMdInstanceSegment.setParentId(parentId);
-					tMdInstanceSegmentDAO.insert(tMdInstanceSegment);
+				divideInsert(map,wordType);
+			}
+		}
+	}
+	/**
+	 * 分词后入库
+	 * @param type 分字段、表还是库
+	 */
+	public void insertPart(String ids,String wordType) {
+
+		long row = 501;
+		long pageCount = 20;
+		long sum = (row - 1) / pageCount + 1;
+		System.out.println(sum);
+		
+		/*
+		 * select * from T_MD_INSTANCE where parent_id in('v46d9820eff311e19ca9fa042f8ce8e9')
+			union all
+			select * from T_MD_INSTANCE where parent_id in(
+			select instance_id from T_MD_INSTANCE where parent_id in('v46d9820eff311e19ca9fa042f8ce8e9'));
+		 */
+		Map<Object, Object> parameterMap = new ParameterMap("parentIds", ids);
+		row = tMdInstanceDAO.countByIds(parameterMap);
+		pageCount = 20000;
+		sum = (row - 1) / pageCount + 1;
+		System.out.println(sum);
+		for (long page = 0; page < sum; page++) {
+			parameterMap = new ParameterMap("parentIds", ids,"start", page * pageCount,"limit", page * pageCount + pageCount);
+			List<Map<String, Object>> list = tMdInstanceDAO.getListByids(parameterMap);
+			System.err.println(sum + "<=======>" + page);
+			//循环所有表分词
+			for (Map<String, Object> map : list) {
+				divideInsert(map,wordType);
+				String tableIdString = map.get("instance_id")+"";
+				parameterMap = new ParameterMap("parentIds", tableIdString,"start", page * pageCount,"limit", page * pageCount + pageCount);
+				//循环所有column分词
+				List<Map<String, Object>> columnList = tMdInstanceDAO.getListByids(parameterMap);
+				for (Map<String, Object> columnMap : columnList) {
+					divideInsert(columnMap,wordType);
 				}
 			}
 		}
 	}
-
+	//筛选分词并入库
+	public void divideInsert(Map<String, Object> map,String wordType){
+			List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_NAME") + "").getTerms();
+			//List<Term> list1 = ToAnalysis.parse(map.get("INSTANCE_CODE") + "").getTerms();
+			for (Term term : list1) {
+				// 分词规则
+				String nature = term.getNatureStr();
+				String chinese = partSpeach(nature);
+				//筛选规则
+				if(chinese.equals(wordType)){
+					continue;
+				}
+				//term.
+				if (term.getName().length() == 1)
+					continue;
+				if (term.getName().equals("_") || term.getName().equals("id") || term.getName().equals("is"))
+					continue;
+				TMdInstanceSegment tMdInstanceSegment = new TMdInstanceSegment();
+				tMdInstanceSegment.setSegmentWord(term.getName());
+				String instanceId = map.get("INSTANCE_ID") + "";
+				tMdInstanceSegment.setInstanceId(instanceId);
+				String instanceCode = map.get("INSTANCE_CODE") + "";
+				tMdInstanceSegment.setInstanceCode(instanceCode);
+				String instanceName = map.get("INSTANCE_NAME") + "";
+				tMdInstanceSegment.setInstanceName(instanceName);
+				String classifierId = map.get("CLASSIFIER_ID") + "map";
+				tMdInstanceSegment.setClassifierId(classifierId);
+				String namespace = map.get("NAMESPACE") + "";
+				tMdInstanceSegment.setNamespace(namespace);
+				String parentId = map.get("PARENT_ID") + "";
+				tMdInstanceSegment.setParentId(parentId);
+				tMdInstanceSegment.setNature(nature);
+				tMdInstanceSegment.setChinese(chinese);
+				tMdInstanceSegmentDAO.insert(tMdInstanceSegment);
+			}
+	}
+	/*
+	 * 获取对应关系
+	 */
+	public String partSpeach(String type) {
+		if(type.equals("a")){
+			return "形容词";
+		}
+		if(type.equals("ad")){
+			return "副形词";
+		}
+		if(type.equals("Ag")){
+			return "形语素";
+		}
+		if(type.equals("an")){
+			return "名形词";
+		}
+		if(type.equals("Bg")){
+			return "区别语素";
+		}
+		if(type.equals("b")){
+			return "区别词";
+		}
+		if(type.equals("c")){
+			return "连词";
+		}
+		if(type.equals("Dg")){
+			return "副语素";
+		}
+		if(type.equals("d")){
+			return "副词";
+		}
+		if(type.equals("e")){
+			return "叹词";
+		}
+		if(type.equals("d")){
+			return "副词";
+		}
+		if(type.equals("e")){
+			return "叹词";
+		}
+		if(type.equals("f")){
+			return "方位词";
+		}
+		if(type.equals("h")){
+			return "前接成分";
+		}
+		if(type.equals("i")){
+			return "成语";
+		}
+		if(type.equals("j")){
+			return "简称略语";
+		}
+		if(type.equals("k")){
+			return "后接成分";
+		}
+		if(type.equals("l")){
+			return "习用语";
+		}
+		if(type.equals("Mg")){
+			return "数语素";
+		}
+		if(type.equals("m")){
+			return "数词";
+		}
+		if(type.equals("Ng")){
+			return "名语素";
+		}
+		if(type.equals("n")){
+			return "名词";
+		}
+		if(type.equals("nr")){
+			return "人名";
+		}
+		if(type.equals("ns")){
+			return "地名";
+		}
+		if(type.equals("nt")){
+			return "机构团体";
+		}
+		if(type.equals("nx")){
+			return "外文字符";
+		}
+		if(type.equals("nz")){
+			return "其他专名";
+		}
+		if(type.equals("o")){
+			return "拟声词";
+		}
+		if(type.equals("p")){
+			return "介词";
+		}
+		if(type.equals("q")){
+			return "量词";
+		}
+		if(type.equals("Rg")){
+			return "代语素";
+		}
+		if(type.equals("r")){
+			return "代词";
+		}
+		if(type.equals("s")){
+			return "处所词";
+		}
+		if(type.equals("Tg")){
+			return "时语素";
+		}
+		if(type.equals("t")){
+			return "时间词";
+		}
+		if(type.equals("u")){
+			return "助词";
+		}
+		if(type.equals("Vg")){
+			return "动语素";
+		}
+		if(type.equals("v")){
+			return "动词";
+		}
+		if(type.equals("vd")){
+			return "副动词";
+		}
+		if(type.equals("vn")){
+			return "名动词";
+		}
+		if(type.equals("w")){
+			return "标点符号";
+		}
+		if(type.equals("z")){
+			return "状态词";
+		}
+		return "";
+	}
 	/**
 	 * 根据分词数据选举出库和表本体分词
 	 */

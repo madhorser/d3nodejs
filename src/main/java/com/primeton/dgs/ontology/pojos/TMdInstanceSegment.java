@@ -30,7 +30,31 @@ public class TMdInstanceSegment implements java.io.Serializable {
 
 	protected String segmentWord;
 	
+	
+	public String getNature() {
+		return nature;
+	}
+
+	
+	public void setNature(String nature) {
+		this.nature = nature;
+	}
+
+	
+	public String getChinese() {
+		return chinese;
+	}
+
+	
+	public void setChinese(String chinese) {
+		this.chinese = chinese;
+	}
+
 	protected String tablename;
+	
+	protected String nature;
+	
+	protected String chinese;
 	
 	public String getTablename() {
 		return tablename;

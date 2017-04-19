@@ -42,7 +42,7 @@ public class TMdInstanceSegmentDAOImpl implements TMdInstanceSegmentDAO {
 	public void insert(TMdInstanceSegment obj) {
 		//TMdInstanceSegmentMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceSegmentMapper.class);
 		//mapper.insert(obj);
-
+		getSqlMapClientTemplate().insert("TMdInstanceSegment.insertTMdInstanceSegment", obj);
 	}
 
 	@Override

@@ -92,7 +92,7 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 	public List<Map<String, Object>> getListCateGoryAll(Map<Object,Object> map) {
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.getListCateGoryAll(map);
-		return  getSqlMapClientTemplate().queryForList("getListSchemaCateGoryAll", map);
+		return  getSqlMapClientTemplate().queryForList("TMdInstance.getListSchemaCateGoryAll", map);
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 	public List<Map<String, Object>> getListSchemaCateGoryAll(Map<Object,Object> map) {
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.getListSchemaCateGoryAll(map);
-		return  getSqlMapClientTemplate().queryForList("getListSchemaCateGoryAll", map);
+		return  getSqlMapClientTemplate().queryForList("TMdInstance.getListSchemaCateGoryAll", map);
 	}
 
 	@Override
@@ -114,6 +114,15 @@ public class TMdInstanceDAOImpl implements TMdInstanceDAO{
 		//TMdInstanceMapper mapper = this.sqlSessionTemplate.getMapper(TMdInstanceMapper.class);
 		//return mapper.getListInstanceMdATT(map);
 		return null;
+	}
+	@Override
+	public long countByIds(Map<Object, Object> map) {
+		return (Long)getSqlMapClientTemplate().queryForObject("TMdInstance.countByIds", map);
+	}
+	@Override
+	public List<Map<String, Object>> getListByids(Map<Object, Object> map) {
+		// TODO Auto-generated method stub
+		return  getSqlMapClientTemplate().queryForList("TMdInstance.getListByids", map);
 	}
 
 }

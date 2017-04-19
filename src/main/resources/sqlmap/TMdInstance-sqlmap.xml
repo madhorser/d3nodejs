@@ -111,5 +111,20 @@
             select * from T_MD_INSTANCE where 1=1
             <include refid="findByPageCondition" /> 
 	    </select>  
-    
+    	
+    	<select id="countByIds" parameterClass="parameterMap"  resultClass="java.util.HashMap">  
+            <![CDATA[  
+	            SELECT count(1) FROM T_MD_INSTANCE where parent_id in $parentIds$
+	        ]]>  
+	    </select>
+	    
+	    <select id="getListByids" parameterClass="parameterMap"  resultClass="java.util.HashMap">  
+	    	
+            SELECT * FROM (SELECT ROWNUM AS rowno, t.*  FROM T_MD_INSTANCE t
+            WHERE  ROWNUM &lt;= #limit# and PARENT_ID in $parentIds$
+			  
+            ) table_alias
+             WHERE table_alias.rowno &gt;= #start#
+             
+	    </select>
 </sqlMap>

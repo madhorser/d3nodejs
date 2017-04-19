@@ -34,4 +34,9 @@ public interface TMdInstanceDAO {
     public List<Map<String, Object>> getListSchemaCateGoryAll(Map<Object,Object> map);
     
     public List<Map<String, Object>> getListInstanceMdATT(Map<Object,Object> map);
+    
+    public long countByIds(Map<Object,Object> map);
+    
+    public List<Map<String, Object>> getListByids(Map<Object,Object> map);
+    
 }
