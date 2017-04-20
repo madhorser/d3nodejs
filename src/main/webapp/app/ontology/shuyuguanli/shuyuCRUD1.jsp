@@ -29,6 +29,16 @@
 		<div id="form1" >
 			任务名称：
 			<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
+			来源库：
+			<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
+			状态：
+		 	<input name="shuyutype" showNullItem="true" class="nui-combobox" url="shuyuzhuangtai.txt" value="1" textField="text" valueField="id" />
+		 	
+		 	创建时间：
+		 	<input class="nui-datepicker" id="startDate" name="startDate"  placeholder="" timeFormat="">
+		 	- -
+		 	<input class="nui-datepicker" id="endDate" name="endDate"  placeholder="" timeFormat="">
+		 	
 			<br/><br/>
 			<button id="searchBtn" class="btn btn-primary blue" onclick="searchVersion()">查询</button>
 			<button id="clearBtn" class="btn btn-primary blue" onclick="reset()">重置</button>
@@ -52,17 +62,26 @@
                                  allowSort="true">
                                 任务名称
                             </div>
+                            
+                           <div name="name" field="name" align="center" width="100" headerAlign="center"
+                                 allowSort="true">
+                                来源库
+                            </div>
 
                             <div field="manager_name" width="100" headerAlign="center" align="center"
                                  allowSort="true">
-                                时间
+                                创建时间
+                            </div>
+                           <div field="manager_name" width="100" headerAlign="center" align="center"
+                                 allowSort="true">
+                                执行时间
                             </div>
                             <div field="userId" width="120" headerAlign="center" align="center"
                                  allowSort="true">
                                 状态
                             </div>
                             <div field="manager" width="120" headerAlign="center" align="center"
-                                 allowSort="true">
+                                 allowSort="true" renderer="showText">
                                 结果
                             </div>
                         </div>
@@ -93,6 +112,11 @@
         form.reset();
         grid1.load();
 
+    }
+    
+    function showText(e){
+	    var builtIn = e.value;
+	    return "<a href=\"javascript:void(0);\">详情</a>";
     }
 
 </script>
