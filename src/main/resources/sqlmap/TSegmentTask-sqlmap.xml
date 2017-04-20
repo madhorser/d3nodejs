@@ -7,60 +7,47 @@
    		    
  		    <sql id="findByPageCondition">  
 		        
-		                <isNotEmpty property="instanceId">  
+		        		<isNotEmpty property="taskId">  
 		                <![CDATA[   
-		                     AND NSTANCE_ID = #instanceId# 
+		                     AND task_id = #taskId# 
+		                ]]>  
+		                </isNotEmpty> 
+		                
+		                <isNotEmpty property="status">  
+		                <![CDATA[   
+		                     AND status = #status# 
 		                ]]>  
 		                </isNotEmpty> 
 		                 
-		                <isNotEmpty property="parentId">  
+		                <isNotEmpty property="taskName">  
 		                <![CDATA[  
-		                    AND PARENT_ID = #parentId#      
+		                    AND task_name = #taskName#      
 		                ]]>  
 		                </isNotEmpty>  
 		                
-		                <isNotEmpty property="instanceCode">  
+		                <isNotEmpty property="segmentFrom">  
 		                <![CDATA[  
-		                    AND INSTANCE_CODE = #instanceCode#     
+		                    AND segment_from = #segmentFrom#     
 		                ]]>  
 		                </isNotEmpty>  
 		                
-		              <isNotEmpty property="instanceName">  
+		              <isNotEmpty property="insertTime">  
 		                <![CDATA[  
-		                    AND INSTANCE_NAME = #instanceName#     
+		                    AND insert_time = #insertTime#     
 		                ]]>  
 		                </isNotEmpty>  
 		                
-		                <isNotEmpty property="classifierId">  
+		                <isNotEmpty property="updateTime">  
 		                <![CDATA[  
-		                    AND CLASSIFIER_ID = #classifierId#     
+		                    AND update_time = #updateTime#     
 		                ]]>  
 		                </isNotEmpty>  
 		                
-		                <isNotEmpty property="namespace">  
+		                <isNotEmpty property="taskResult">  
 		                <![CDATA[  
-		                    AND NAMESPACE = #namespace#     
+		                    AND task_result = #taskResult#     
 		                ]]>  
 		                </isNotEmpty>
-		                
-		                <isNotEmpty property="segmentWord">  
-		                <![CDATA[  
-		                    AND SEGMENT_WORD = #segmentWord#     
-		                ]]>  
-		                </isNotEmpty>   
-
-		                
-		                <isNotEmpty property="tablename">  
-		                <![CDATA[  
-		                    AND TABLE_NAME = #tablename#     
-		                ]]>  
-		                </isNotEmpty>  
-		                
-		               <isNotEmpty property="tablecode">  
-		                <![CDATA[  
-		                    AND TABLE_CODE = #tablecode#     
-		                ]]>  
-		                </isNotEmpty>    
 		         
 		    </sql>
 		    
@@ -109,5 +96,18 @@
 	        set STATUS=#status:VARCHAR#, TASK_RESULT=#taskResult:VARCHAR#, UPDATE_TIME=#updateTime:VARCHAR#
 	        WHERE task_id=#taskId:VARCHAR#
     	</update>
+    	
+    	
+    	<select id="queryTask" parameterClass="parameterMap"  resultClass="java.util.HashMap">  
+	    	
+            SELECT * FROM (SELECT ROWNUM AS rowno, t.*  FROM T_SEGMENT_TASK t
+            WHERE  ROWNUM &lt;= #limit#
+            
+			            <include refid="findByPageCondition" />  
+			
+            ) table_alias
+             WHERE table_alias.rowno &gt;= #start#
+             
+	    </select>  
         
   </sqlMap>

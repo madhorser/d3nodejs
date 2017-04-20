@@ -16,6 +16,6 @@ public interface TSegmentTaskDAO {
 
 	public void updateStatus(TSegmentTask obj);
 
-	public List<Map<String, Object>> getSchemaList(Map<Object,Object> map);
+	public List<Map<String, Object>> queryTask(Map<Object,Object> map);
 
 }

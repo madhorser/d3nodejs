@@ -40,9 +40,10 @@ public class TSegmentTaskDAOImpl implements TSegmentTaskDAO {
 	}
 
 	@Override
-	public List<Map<String, Object>> getSchemaList(Map<Object, Object> map) {
+	public List<Map<String, Object>> queryTask(Map<Object, Object> map) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Map<String, Object>> list =  getSqlMapClientTemplate().queryForList("TSegmentTask.queryTask", map);
+		return list;
 	}
 	@Override
 	public void updateStatus(TSegmentTask obj) {

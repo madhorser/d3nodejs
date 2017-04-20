@@ -2,12 +2,15 @@ package test.com.primeton.dgs.ontology.dao;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.primeton.dgs.ontology.dao.TSegmentTaskDAO;
+import com.primeton.dgs.ontology.pojos.ParameterMap;
 import com.primeton.dgs.ontology.pojos.TSegmentTask;
 import com.primeton.dgs.tools.IdGenerate;
 
@@ -41,6 +44,16 @@ public class SegmentTaskDao extends BaseTestCase {
 		task.setTaskName("");
 		task.setTaskId(IdGenerate.uuidGen());
 		tSegmentTaskDao.insertSegmentTask(task);
+	}
+	/**
+	 * 查询任务
+	 */
+	public List<Map<String, Object>> queryTask() {
+		//查询等待执行的任务
+		String status  = "1";
+		Map<Object, Object> parameterMap = new ParameterMap("start", 0,"limit", 10,"status", status);
+		List<Map<String, Object>> list = tSegmentTaskDao.queryTask(parameterMap);
+		return list;
 	}
 
 }
