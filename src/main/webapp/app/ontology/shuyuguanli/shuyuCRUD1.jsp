@@ -27,29 +27,10 @@
 	<div class="panel-body">
 	 	<p class="p-head"><span></span>查询设置</p>
 		<div id="form1" >
-		<table>
-            
-            <tr>
-            <td>
-			提取任务名称：
-			<input class="nui-TextBox" id="idname" name="name" placeholder="">
-			</td>
-		 	 <td>
-		 	 属于提取规则：
-		 	 </td>
-		 	  <td>
-		 	<div name="shuyurule" class="nui-checkboxlist" repeatItems="3" repeatLayout="flow" url="shuyurule.txt" value="1,2,3" textField="text" valueField="id" ></div>
-			</td>
-		</tr>
-		<tr>
-		<td>
-			术语提取来源：
-		 	<input name="shuyutype" showNullItem="true" class="nui-combobox" url="shuyu.txt" value="1" textField="text" valueField="id" />
-		 	</td>
-		</tr>
-        </table>
+			任务名称：
+			<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
 			<br/><br/>
-			<button id="searchBtn" class="btn btn-primary blue" onclick="searchVersion()">提交</button>
+			<button id="searchBtn" class="btn btn-primary blue" onclick="searchVersion()">查询</button>
 			<button id="clearBtn" class="btn btn-primary blue" onclick="reset()">重置</button>
 		</div>
 	</div> 
@@ -58,20 +39,31 @@
 	
 </div>
 <div class="panel panel-default">
-	<div class="panel-body" style="margin-right:55px;">
-        <p class="p-head"><span></span>结果列表
-        </p>
+	<div class="panel-body">
+        <p class="p-head"><span></span>结果列表</p>
 
 		<div class="well">
 
 			
-<div id="datagrid1" class="nui-datagrid" style="height: 500px;"  url="a.json" 
-                          allowResize="false" sortMode="client"  idField="id"  multiSelect="true"  >
+<div id="datagrid1" class="nui-datagrid" style="height: 500px;"
+                          allowResize="false" sortMode="client" dataField="data" idField="id">
                         <div property="columns">
-                            <div type="checkcolumn" ></div>
                             <div name="name" field="name" align="center" width="100" headerAlign="center"
                                  allowSort="true">
-                                数据库名
+                                任务名称
+                            </div>
+
+                            <div field="manager_name" width="100" headerAlign="center" align="center"
+                                 allowSort="true">
+                                时间
+                            </div>
+                            <div field="userId" width="120" headerAlign="center" align="center"
+                                 allowSort="true">
+                                状态
+                            </div>
+                            <div field="manager" width="120" headerAlign="center" align="center"
+                                 allowSort="true">
+                                结果
                             </div>
                         </div>
 </div>
@@ -89,9 +81,12 @@
 	
 <script type="text/javascript">
     nui.parse();
-    var grid1 = nui.get("datagrid1"); 
-    grid1.load(); 
-    
+    //为结果列表赋值
+    var grid1 = nui.get("datagrid1");
+    var url1 = "a1.json";
+    grid1.setUrl(url1);
+    grid1.load();
+
     //重置
     function reset() {
         var form = new nui.Form("#form1");
@@ -99,6 +94,7 @@
         grid1.load();
 
     }
+
 </script>
 
 </body>

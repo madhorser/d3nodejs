@@ -45,7 +45,7 @@
 			
 		<div id="p3" class="mini-panel" title="本体：" iconCls="icon-tip" style="float:left;width:28%;height:50%;" >
 		
-		<div id="datagrid2" class="nui-datagrid" style="width:100%;height:100%;" 
+		<div id="datagrid1" class="nui-datagrid" style="width:100%;height:100%;" 
 		
         url="a.json"   sortMode="client">
         <div property="columns"> 
@@ -59,7 +59,7 @@
 		
 		<div id="p4" class="mini-panel" title="本体关系：" iconCls="icon-tip" style="float:right;width:66%;height:50%;margin-right:55px;" >
 		   
-		<div id="datagrid3" class="nui-datagrid" style="width:100%;height:100%;" 
+		<div id="datagrid2" class="nui-datagrid" style="width:100%;height:100%;" 
 		borderStyle="border:0;"
         url="b.json"   sortMode="client" allowCellSelect="true"  allowCellEdit="true">
         <div property="columns"> 
@@ -89,7 +89,12 @@
 	
 <script type="text/javascript">
     nui.parse();
+    var grid1 = nui.get("datagrid1"); 
+    grid1.load(); 
     
+   
+    var grid2 = nui.get("datagrid2"); 
+    grid2.load(); 
     
     function showText(e){
 	    var builtIn = e.value;
@@ -109,7 +114,13 @@
         }
         return "选择关系";
     }
+    //重置
+    function reset() {
+        var form = new nui.Form("#form1");
+        form.reset();
+        grid1.load();
 
+    }
 
 </script>
 

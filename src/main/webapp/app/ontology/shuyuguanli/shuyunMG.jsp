@@ -88,10 +88,10 @@
 				
 	   		var jsonObj={
   					home:[{pageSrc:"shuyuCRUD.jsp"}],
-  					index:[{pageSrc:"shuyuCRUD.jsp"}],
+  					index:[{pageSrc:"shuyuCRUD1.jsp"}],
   					report:[{pageSrc:"shuyuCRUD.jsp"}],
   					database:[{pageSrc:"shuyuCRUD.jsp"}],
-  					inforItem:[{pageSrc:"shuyuCRUD.jsp"}],
+  					inforItem:[{pageSrc:"shuyuCRUD5.jsp"}],
   					code:[{pageSrc:"shuyuCRUD.jsp"}],
   					etl:[{pageSrc:"shuyuCRUD.jsp"}],
   					interfaces:[{pageSrc:"shuyuCRUD.jsp"}]
