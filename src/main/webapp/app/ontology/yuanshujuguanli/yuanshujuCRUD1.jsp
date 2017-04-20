@@ -27,16 +27,16 @@
 	<div class="panel-body">
 	 	<p class="p-head"><span></span>查询设置</p>
 		<div id="form1" >
-			任务名称：
+			建关系任务名称：
 			<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
 			
-			状态：
-		 	<input name="shuyutype" showNullItem="true" class="nui-combobox" url="ysjzhuangtai.txt" value="1" textField="text" valueField="id" />
+			字段名称：
+		 	<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
 		 	
-		 	开始时间：
-		 	<input class="nui-datepicker" id="startDate" name="startDate"  placeholder="" timeFormat="">
-		 	结束时间：
-		 	<input class="nui-datepicker" id="endDate" name="endDate"  placeholder="" timeFormat="">
+		 	相似度范围：
+		 	<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
+		 	至
+		 	<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
 		 	
 			<br/><br/>
 			<button id="searchBtn" class="btn btn-primary blue" onclick="searchVersion()">查询</button>
@@ -59,24 +59,28 @@
                         <div property="columns">
                             <div name="name" field="name" align="center" width="100" headerAlign="center"
                                  allowSort="true">
-                                任务名称
+                                字段名
                             </div>
 
                             <div field="manager_name" width="100" headerAlign="center" align="center"
                                  allowSort="true">
-                                开始时间
+                                来源表
                             </div>
                            <div field="manager_name" width="100" headerAlign="center" align="center"
                                  allowSort="true">
-                                结束时间
+                                对比字段名
                             </div>
                             <div field="userId" width="120" headerAlign="center" align="center"
                                  allowSort="true">
-                                状态
+                                对比字段来源表
+                            </div>
+                           <div field="userId" width="120" headerAlign="center" align="center"
+                                 allowSort="true">
+                                距离（相似度）
                             </div>
                             <div field="manager" width="120" headerAlign="center" align="center"
                                  allowSort="true" renderer="showText">
-                                结果
+                                操作
                             </div>
                         </div>
 </div>
@@ -110,7 +114,7 @@
     
     function showText(e){
 	    var builtIn = e.value;
-	    return "<a href=\"javascript:void(0);\">详情</a>";
+	    return  "<a href=\"javascript:void(0);\">新增&nbsp;&nbsp;</a>"+ "<a href=\"javascript:void(0);\">修改&nbsp;&nbsp;</a>"+ "<a href=\"javascript:void(0);\">删除</a>";
     }
 
 </script>

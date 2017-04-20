@@ -82,7 +82,7 @@
 				
 	   		var jsonObj={
   					home:[{pageSrc:"yuanshujuCRUD.jsp"}],
-  					index:[{pageSrc:"yuanshujuCRUD.jsp"}],
+  					index:[{pageSrc:"yuanshujuCRUD1.jsp"}],
   					report:[{pageSrc:"yuanshujuCRUD.jsp"}],
   					database:[{pageSrc:"yuanshujuCRUD.jsp"}],
   					inforItem:[{pageSrc:"yuanshujuCRUD.jsp"}]
