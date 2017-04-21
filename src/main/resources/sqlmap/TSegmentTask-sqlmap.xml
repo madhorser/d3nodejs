@@ -48,6 +48,12 @@
 		                    AND task_result = #taskResult#     
 		                ]]>  
 		                </isNotEmpty>
+		                
+		                <isNotEmpty property="taskType">  
+		                <![CDATA[  
+		                    AND task_type = #taskType#
+		                ]]>  
+		                </isNotEmpty>
 		         
 		    </sql>
 		    

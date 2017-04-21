@@ -53,6 +53,15 @@ public class SegmentTaskDao extends BaseTestCase {
 		String status  = "1";
 		Map<Object, Object> parameterMap = new ParameterMap("start", 0,"limit", 10,"status", status);
 		List<Map<String, Object>> list = tSegmentTaskDao.queryTask(parameterMap);
+		for (Map<String, Object> map:list) {
+			String taskId = map.get("task_id")+"";
+			//分词库ID，多选以逗号隔开
+			String segmentFrom = map.get("segment_from")+"";
+			//分词规则，多选以逗号隔开
+			String segmentRule = map.get("segment_rule")+"";
+			TestTMdInstanceSegmentDAO dao = new TestTMdInstanceSegmentDAO();
+			dao.segmentWord();
+		}
 		return list;
 	}
 

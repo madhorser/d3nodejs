@@ -1,5 +1,7 @@
 package test.com.primeton.dgs.ontology.dao;
 
+import java.util.List;
+import java.util.Map;
 
 /**
  * 扫描任务表，执行术语提取任务.
@@ -22,13 +24,10 @@ public class ExcuteTask implements Runnable {
     @Override
     public void run() {
     	SegmentTaskDao segmentTaskDao = new SegmentTaskDao();
-    	segmentTaskDao.queryTask();
-
+    	List<Map<String, Object>> list = segmentTaskDao.queryTask();
         synchronized(this){
-            s.notify();
             System.out.println("我唤醒了002！");
             System.out.println("我存入了id"+id);
-            s.setSource(id);
         }
     }
 

@@ -20,6 +20,22 @@ public class TSegmentTask implements java.io.Serializable {
 	//1.等待执行；2执行中；3失败；4成功
 	protected String taskResult;
 	
+	//1:术语提取任务 2：文本相似度任务
+	protected String taskType;
+	
+	
+	public String getTaskType() {
+		return taskType;
+	}
+
+	/**
+	 * 1:术语提取任务 2：文本相似度任务
+	 * @param taskType
+	 */
+	public void setTaskType(String taskType) {
+		this.taskType = taskType;
+	}
+
 	public String getTaskId() {
 		return taskId;
 	}
