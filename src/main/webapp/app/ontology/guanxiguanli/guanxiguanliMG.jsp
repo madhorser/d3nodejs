@@ -84,7 +84,7 @@
 				
 	   		var jsonObj={
   					home:[{pageSrc:"guanxiguanliCRUD.jsp"}],
-  					index:[{pageSrc:"guanxiguanliCRUD.jsp"}],
+  					index:[{pageSrc:"guanxiguanliCRUD1.jsp"}],
   					report:[{pageSrc:"guanxiguanliCRUD.jsp"}],
   					database:[{pageSrc:"guanxiguanliCRUD.jsp"}],
   					inforItem:[{pageSrc:"guanxiguanliCRUD.jsp"}],

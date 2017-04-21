@@ -27,14 +27,14 @@
 	<div class="panel-body">
 	 	<p class="p-head"><span></span>查询设置</p>
 		<div id="form1" >
-			术语名称：
-			<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="提取任务名称">
+			关系：
+			<input name="shuyutype" showNullItem="true" class="nui-combobox" url="shuyuzhuangtai.txt" value="1" textField="text" valueField="id" />
 			
-			字段(备注)：
-		 	<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="">
+			元数据库：
+		 	<input name="shuyutype" showNullItem="true" class="nui-combobox" url="shuyuzhuangtai.txt" value="1" textField="text" valueField="id" />
 		 	
-		 	表名(备注)：
-		 	<input class="nui-TextBox" id="verNameLike" name="verNameLike" placeholder="来源库">
+		 	元数据表：
+		 	<input name="shuyutype" showNullItem="true" class="nui-combobox" url="shuyuzhuangtai.txt" value="1" textField="text" valueField="id" />
 		 	
 		 	
 			<br/><br/>
@@ -56,10 +56,6 @@
 <div id="datagrid1" class="nui-datagrid" style="height: 500px;"
                           allowResize="false" sortMode="client" dataField="data" idField="id">
                         <div property="columns">
-                            <div name="name" field="name" align="center" width="100" headerAlign="center"
-                                 allowSort="true">
-                                术语名称
-                            </div>
 
                             <div field="manager_name" width="100" headerAlign="center" align="center"
                                  allowSort="true">
@@ -77,12 +73,9 @@
                                  allowSort="true">
                                 表名备注
                             </div>
-                           <div field="userId" width="120" headerAlign="center" align="center"
-                                 allowSort="true" renderer="showText">
-                                所属资源
-                            </div>
+
                             <div field="manager" width="120" headerAlign="center" align="center"
-                                 allowSort="true" renderer="showText1">
+                                 allowSort="true" renderer="showText">
                                 操作
                             </div>
                         </div>
@@ -120,10 +113,7 @@
 	    return  "<a href=\"javascript:void(0);\">来源</a>";
     }
     
-    function showText1(e){
-	    var builtIn = e.value;
-	    return  "<a href=\"javascript:void(0);\">设立／取消本体&nbsp;&nbsp;</a>"+ "<a href=\"javascript:void(0);\">修改&nbsp;&nbsp;</a>";
-    }
+
 
 </script>
 
