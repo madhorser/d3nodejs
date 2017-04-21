@@ -6,6 +6,7 @@ import java.util.Map;
 import com.primeton.dgs.ontology.pojos.TMdInstance;
 
 public interface TMdInstanceService {
+	String SPRING_NAME = "tMdInstanceService";
     public void insert(TMdInstance obj); 
     
     public void update(TMdInstance obj);  
